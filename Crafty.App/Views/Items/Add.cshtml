@@ -1,0 +1,17 @@
+﻿@model AddItemViewModelBag
+@section styles {
+  <link href="~/Stylesheets/add-item.css" rel="stylesheet" />
+}
+@{
+  ViewBag.Title = "Ново изделие";
+}
+
+
+@Html.Partial("_AddItemForm", Model.AddItemBindingModel)
+
+@Html.Partial("_Sections", Model.Sections)
+
+@section scripts{
+  <script src="~/Scripts/add-item.js"></script>
+}
+

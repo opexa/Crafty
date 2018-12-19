@@ -1,0 +1,123 @@
+﻿@model HomeViewModelBag
+@section styles {
+  <link href="~/Stylesheets/columns_layout.css" rel="stylesheet" />
+  <link href="~/Stylesheets/home.css" rel="stylesheet" />
+}
+
+@section scripts{
+  <script src="~/Scripts/home.js"></script>
+}
+@{
+  ViewBag.Title = "Начало";
+}
+
+<div class="landing-layer">
+  <div class="landing-layer-text">
+    ПАЗАРУВАЙТЕ В НАЙ-ДОБРИЯ САЙТ ЗА РЪЧНОИЗРАБОТЕНИ ИЗДЕЛИЯ
+  </div>
+</div>
+<div class="page-wrapper">
+  <div class="page-content">
+    <div class="first-layer">
+      <div class="part part-1">
+        <div class="layer-heading">БЪДИ СЕБЕ СИ</div>
+      </div>
+      <div class="part part-2">
+        <div class="layer-heading">БЪДИ ЕДИНСТВЕН</div>
+      </div>
+      <div class="part part-3">
+        <div class="layer-heading">БЪДИ УНИКАЛЕН</div>
+      </div>
+    </div>
+
+    <div class="second-layer">
+      <div class="part">
+        <span class="text">БЕЗПЛАТНА ДОСТАВКА&nbsp;</span>
+        <i class="fa fa-truck"></i>
+      </div>
+      <div class="seperator">/</div>
+      <div class="part">
+        <span class="text">БЪРЗО ОБСЛУЖВАНЕ&nbsp;</span>
+        <i class="fa fa-phone"></i>
+      </div>
+      <div class="seperator">/</div>
+      <div class="part">
+        <span class="text">УНИКАЛНИ ПРЕДЛОЖЕНИЯ&nbsp;</span>
+        <i class="fa fa-diamond"></i>
+      </div>
+    </div>
+
+    <div class="third-layer">
+      <div class="part-one" style="background-image: url('@Model.PopularCategories.ElementAt(0).Thumbnail')">
+        <a href="/items/section/@Model.PopularCategories.ElementAt(0).SectionId?ctg=@Model.PopularCategories.ElementAt(0).Id">
+          <span>
+            @Model.PopularCategories.ElementAt(0).Name
+          </span>
+        </a>
+      </div>
+      <div class="part-two" style="background-image: url('@Model.PopularCategories.ElementAt(2).Thumbnail')">
+        <a href="/items/section/@Model.PopularCategories.ElementAt(2).SectionId?ctg=@Model.PopularCategories.ElementAt(2).Id">
+          <span>
+            @Model.PopularCategories.ElementAt(2).Name
+          </span>
+        </a>
+      </div>
+      <div class="part-three" style="background-image: url('@Model.PopularCategories.ElementAt(1).Thumbnail')">
+        <a href="/items/section/@Model.PopularCategories.ElementAt(1).SectionId?ctg=@Model.PopularCategories.ElementAt(1).Id">
+          <span>
+            @Model.PopularCategories.ElementAt(1).Name
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="fourth-layer">
+      @{
+        var width = Model.Blogs.Count() * 100.5 + "vw";
+      }
+      <div class="blogs-wrapper" style="width: @{ @Html.Raw(width.Replace("," , ".")) };">
+        @{ int k = 1; }
+        @foreach (ConciseBlogViewModel blog in Model.Blogs)
+        {
+          <div class="blog-section" data-id="@k" style="background-image: url(@blog.Thumbnail)">
+            <span class="blog-title">
+              @blog.Title
+            </span>
+            <div class="blog-link">
+              <a href="/blogs/details/@blog.Id">
+                ПОВЕЧЕ
+                <i class="fa fa-caret-right"></i>
+              </a>
+            </div>
+          </div>
+          k++;
+        }
+      </div>
+      @if(Model.Blogs.Count() > 1)
+      {
+        <div class="navigators">
+        @for(int i = 1; i <= Model.Blogs.Count(); i++)
+        {
+          <div class="carousel" data-slide-id="@i">
+          @if(i == 1)
+          {
+            <i class="fa fa-circle"></i>
+          }
+          else
+          {
+            <i class="fa fa-circle-o"></i>
+          }
+          </div>
+        }
+        </div>
+      }
+    </div>
+
+    <div class="fifth-layer">
+      <div class="layer-heading">ПОПУЛЯРНИ ИЗДЕЛИЯ</div>
+      <div class="columns popular-items">
+        @Html.DisplayFor(model => model.PopularItems)
+      </div>
+    </div>
+  </div>
+</div>

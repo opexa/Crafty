@@ -1,0 +1,91 @@
+﻿@model UserProfileDetailsViewModel
+
+@{ ViewBag.Title = Model != null ? Model.UserName : "Несъществуващ потребител"; }
+@section styles {
+  <link href="~/Stylesheets/user-account.css" rel="stylesheet" />
+  <link href="~/Stylesheets/columns_layout.css" rel="stylesheet" />
+}
+
+@if(Model != null)
+{
+  <div class="user-info-container">
+    <div id="user-info">
+      <div class="user-heading-info" style="background-image: url(@Model.ProfileBanner)">
+        <div class="user-picture">
+          <div class="img-circle" style="background-image: url(@Model.ProfileImg)"></div>
+          <div class="user-username-info col-md-offset-2 col-md-8">
+            <span class="user-status">
+              @if (Model.Status.ToString() == "Seller")
+              {
+                @Html.Raw("Продавач <span class=\"hide-on-resize\">-</span> ")
+              }
+              else
+              {
+                @Html.Raw("Потребител <span class=\"hide-on-resize\">-</span> ")
+              }
+            </span>
+            <span class="caption">@Model.UserName</span>
+          </div>
+        </div>
+        <div class="col-md-offset-2 col-md-8 user-main-info">
+          @if (Model.Website != null)
+          {
+            <div class="info-field info-website"><i class="fa fa-unlink"></i>&nbsp;&nbsp; <span>Уебсайт:</span>  <a target="_blank" href="@Model.Website">@Model.Website</a></div>
+          }
+          @if (Model.City != null)
+          {
+            <div class="info-field info-city"><i class="fa fa-globe"></i>&nbsp;&nbsp; <span>Град:</span>  @Model.City</div>
+          }
+          <div class="info-field info-email"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp; <span>Имейл:</span>  @Model.Email</div>
+          @if (Model.Status.ToString() == "Seller")
+          {
+            <div class="info-field info-sold-items-count">
+              <i class="fa fa-handshake-o"></i>&nbsp;
+              Брой продадени артикули:
+              @{
+                if (Model.SoldItems > 0)
+                {
+                  @Html.Raw(Model.SoldItems)
+                }
+                else
+                {
+                  @Html.Raw(0)
+                }
+              }
+            </div>
+          }
+          <br />
+          <br />
+          <div class="user-info-description">
+            <h5>Описание</h5>
+            <span>
+              @if (Model.Description == null || Model.Description.Length == 0)
+              {
+                @Html.Raw("Лиспва описание...")
+              }
+              else
+              {
+                @Html.Raw(Model.Description)
+              }
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <p class="items-section-heading">Изделията на @Model.UserName</p>
+  <div id="columns" class="user-items">
+    @Html.DisplayFor(model => Model.Items)
+  </div>
+}
+else
+{
+  <div class="user-not-found">
+    <span>
+      <i class="fa fa-user-times"></i>
+      Не открихме в системата потребител с такова име..
+    </span>
+  </div>
+}

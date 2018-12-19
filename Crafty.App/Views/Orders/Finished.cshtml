@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ConciseFinOrderViewModel>
+@{ ViewBag.Title = "Завършени поръчки"; }
+
+@section styles {
+  <link rel="stylesheet" href="~/Stylesheets/orders-finished.css">
+}
+
+@Html.Partial("_AccountNavigation")
+<h1 class="page-heading">Завършени поръчки</h1>
+
+<div class="orders-container">
+  @Html.DisplayForModel()
+</div>
+
+@section scripts {
+  <script src="~/Scripts/orders-finished.js"></script>
+}

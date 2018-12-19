@@ -1,0 +1,384 @@
+.container.body-content
+  width: 100%
+  // min-height: 100%
+  padding: 50px 0px 100px 0px
+  background: rgb(236, 235, 235)
+
+  .order-container
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    @media screen and (max-width: 804px)
+      justify-content: flex-start
+      flex-direction: column
+      align-items: center
+
+    // div
+    //   width: 50%
+
+    .item-container
+      margin: 0 10px
+      width: 450px
+      @media screen and (max-width: 100px)
+
+      .item-wrapper
+        background-color: rgb(255, 255, 255)
+        // float: right
+        width: 100%
+        border-radius: 2px
+        box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -o-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -moz-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -webkit-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        box-sizing: border-box
+        padding: 10px
+
+        div
+          width: 100%
+
+        .item-id
+
+        .item-title
+          font-size: 15px
+          color: rgb(59, 59, 59)
+          font-weight: 600
+
+        .item-thumbnail
+          width: calc(100% + 20px)
+          margin: 7px auto
+          margin-left: -10px
+          height: 450px
+          box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.05), 0px 0px 2px 2px rgba(73, 73, 73, 0.05)
+          -o-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.05), 0px 0px 2px 2px rgba(73, 73, 73, 0.05)
+          -moz-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.05), 0px 0px 2px 2px rgba(73, 73, 73, 0.05)
+          -webkit-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.05), 0px 0px 2px 2px rgba(73, 73, 73, 0.05)
+          // background-color: rgb(227, 227, 227)
+
+          img
+            max-width: 100%
+            max-height: 100%
+            position: relative
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            -o-transform: translate(-50%, -50%)
+            -moz-transform: translate(-50%, -50%)
+            -webkit-transform: translate(-50%, -50%)
+
+        .item-price
+          font-size: 15.5px
+          color: rgb(45, 45, 45)
+
+        .item-description
+          margin-top: 5px
+          p
+            font-size: 14.5px
+            color: rgb(45, 45, 45)
+
+    .users-container
+      margin: 0 10px
+      width: 300px
+      @media screen and (max-width: 804px)
+        width: 450px
+        margin-top: 30px
+
+      .buyer-container
+        width: 100%
+        box-sizing: border-box
+        min-height: 150px
+        background-color: rgb(255, 255, 255)
+        border-radius: 2px
+        box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -o-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -moz-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -webkit-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        padding-bottom: 10px
+
+        .buyer-section-heading
+          width: 100%
+          display: block
+          text-align: center
+          padding: 5px 0px
+          background: rgb(231, 63, 63)
+          color: white
+          box-shadow: 0px 2px 3px 1px rgba(73, 73, 73, 0.51)
+
+        .fields-section
+          margin-top: 10px
+          width: 100%
+          padding: 0px 10px
+
+          .field
+            margin-top: 5px
+            width: 100%
+
+            .validation
+              width: 100%
+
+            .field-index
+              font-size: 14px
+              color: rgb(129, 129, 129)
+              margin: 0px
+              width: calc(100% - 30px)
+              border-bottom: 1px solid rgba(#dddddd, 0.8)
+
+            .field-editor.invisible
+              height: 0px
+              overflow: hidden
+              box-sizing: border-box
+              opacity: 0
+
+            .field-editor
+              transition: all 0.15s ease-in-out
+              -o-transition: all 0.15s ease-in-out
+              -moz-transition: all 0.15s ease-in-out
+              -webkit-transition: all 0.15s ease-in-out
+              width: 100%
+
+              input
+                min-height: 32.5667px
+                border: 1px solid #d7d7d7
+                padding: 6px
+                width: 100%
+                color: rgb(34, 34, 34)
+                &:focus
+                  box-shadow: 0px 0px 2px 2px #dddddd
+
+            .field-value.invisible
+              height: 0px
+              box-sizing: border-box
+              overflow: hidden
+              opacity: 0
+
+            .field-value
+              color: rgb(34, 34, 34)
+              font-size: 14.3px
+              position: relative
+              width: 100%
+              transition: all 0.15s ease-in-out
+              -o-transition: all 0.15s ease-in-out
+              -moz-transition: all 0.15s ease-in-out
+              -webkit-transition: all 0.15s ease-in-out
+
+              .value-span
+                overflow-x: hidden
+                display: block
+                width: calc(100% - 25px)
+
+              .edit-field
+                position: absolute
+                top: 0px
+                right: 0px
+                width: 20px
+                height: 20px
+                overflow: hidden
+                cursor: pointer
+                color: rgba(129, 129, 129, 0.3)
+                transition: all 0.12s ease-in-out
+                -o-transition: all 0.12s ease-in-out
+                -moz-transition: all 0.12s ease-in-out
+                -webkit-transition: all 0.12s ease-in-out
+                // position: relative
+                &:hover
+                  color: rgb(34, 34, 34)
+                  overflow: visible
+                  .triangle
+                    opacity: 1
+                  .edit-popup
+                    opacity: 1
+
+                .triangle
+                  position: absolute
+                  width: 0
+                  height: 0
+                  top: 5px
+                  left: 20px
+                  border-top: 5px solid transparent
+                  border-right: 10px solid rgb(27, 27, 27)
+                  border-bottom: 5px solid transparent
+                  transition: all 0.12s ease-in-out
+                  -o-transition: all 0.12s ease-in-out
+                  -moz-transition: all 0.12s ease-in-out
+                  -webkit-transition: all 0.12s ease-in-out
+                  opacity: 0
+
+                .edit-popup
+                  position: absolute
+                  top: 0px
+                  left: 30px
+                  background-color: rgb(27, 27, 27)
+                  width: 80px
+                  border-radius: 2px
+                  color: white
+                  opacity: 0
+                  text-align: center
+                  transition: all 0.12s ease-in-out
+                  -o-transition: all 0.12s ease-in-out
+                  -moz-transition: all 0.12s ease-in-out
+                  -webkit-transition: all 0.12s ease-in-out
+
+          .order-details
+            .field-editor
+              textarea
+                resize: none
+                min-height: 32.5667px
+                height: 32.5667px
+                border: 1px solid #d7d7d7
+                padding: 6px
+                width: 100%
+                color: rgb(34, 34, 34)
+                overflow: hidden
+                &:focus
+                  box-shadow: 0px 0px 2px 2px #dddddd
+
+      .seller-container
+        margin-top: 30px
+        width: 100%
+        box-sizing: border-box
+        min-height: 120px
+        background-color: rgb(255, 255, 255)
+        border-radius: 2px
+        box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -o-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -moz-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        -webkit-box-shadow: 0px 0px 2px 2px rgba(73, 73, 73, 0.31)
+        padding: 0px 0px 15px 0px
+
+        .seller-section-heading
+          width: 100%
+          display: block
+          text-align: center
+          padding: 5px 0px
+          background: rgb(231, 63, 63)
+          color: white
+          box-shadow: 0px 2px 3px 1px rgba(73, 73, 73, 0.51)
+
+        .sections
+          margin-top: 13px
+          width: 100%
+          display: flex
+          justify-content: center
+          overflow: hidden
+          @media screen and (max-width: 804px)
+            padding-right: 10px
+            height: 100%
+            justify-content: space-between
+
+          .info-section
+            padding-left: 10px
+            padding-top: 7px
+
+            div
+              width: 100%
+              color: rgb(45, 45, 45)
+              font-size: 15px
+
+            .seller-name
+              a
+                color: rgb(45, 45, 45)
+                font-size: 15px
+                text-decoration: none
+                &:hover
+                  text-decoration: underline
+
+            .seller-phone
+              font-size: 14px
+
+              i
+                font-size: 20px
+                margin-left: 2px
+
+            .seller-email
+              font-size: 14px
+              width: 140px
+              white-space: nowrap
+              text-overflow: ellipsis
+              i
+                font-size: 14px
+
+          .profile-picture-section
+
+            img
+              width: 100px
+              height: 100px
+              border-radius: 50%
+              -o-border-radius: 50%
+              -moz-border-radius: 50%
+              -webkit-border-radius: 50%
+              position: relative
+              top: 50%
+              left: 50%
+              transform: translate(-50%, -50%)
+              -o-transform: translate(-50%, -50%)
+              -moz-transform: translate(-50%, -50%)
+              -webkit-transform: translate(-50%, -50%)
+              box-shadow: 0px 0px 2px 2px rgba(57, 57, 57, 0.74)
+              @media screen and (max-width: 804px)
+                width: 95px
+                height: 95px
+                margin-bottom: 8px
+                margin-top: 2px
+
+      .final-quotes-container
+        width: 100%
+        padding-top: 50px
+        text-align: right
+
+        div
+          width: 100%
+          color: rgb(38, 38, 38)
+
+        .amount-section
+          font-size: 19px
+          padding-bottom: 5px
+          border-bottom: 1px solid rgba(185, 185, 185, 0.7)
+
+        .price-section
+          margin-top: 5px
+
+          p
+            font-size: 18px
+            margin: 0px
+
+          .total-price
+            font-size: 20px
+            font-weight: bold
+
+      .buttons-container
+        width: 100%
+        padding-top: 40px
+        text-align: right
+        @media screen and (max-width: 804px)
+          text-align: center
+
+        input[type="submit"]
+          background-color: transparent
+          border-radius: 2px
+          border: 3px solid rgb(27, 162, 198)
+          padding: 7px 12px
+          color: rgb(27, 162, 198)
+          transition: all 0.12s ease-in-out
+          -o-transition: all 0.12s ease-in-out
+          -moz-transition: all 0.12s ease-in-out
+          -webkit-transition: all 0.12s ease-in-out
+          &:hover
+            background-color: rgb(27, 162, 198)
+            color: white
+
+        .cancel-order-btn
+          background-color: transparent
+          border-radius: 2px
+          min-height: 38.5667px
+          display: inline-block
+          border: 3px solid rgb(205, 68, 68)
+          padding: 7px 12px
+          color: rgb(205, 68, 68)
+          text-decoration: none
+          transition: all 0.12s ease-in-out
+          -o-transition: all 0.12s ease-in-out
+          -moz-transition: all 0.12s ease-in-out
+          -webkit-transition: all 0.12s ease-in-out
+          &:hover
+            background-color: rgb(205, 68, 68)
+            color: white

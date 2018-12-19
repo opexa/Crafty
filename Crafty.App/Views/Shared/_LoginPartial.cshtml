@@ -1,0 +1,104 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+  using (Html.BeginForm("LogOff", "account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+  {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+      <li title="Tърсене" id="search-box-li">
+        <div class="searchbox-wrap">
+          <input type="text" name="search_word" placeholder="Търсене" />
+          <div class="icn-wrapper">
+            <span><i class="glyphicon glyphicon-search icn-search"></i></span>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31px" height="31px" viewBox="0 0 16 16" preserveAspectRatio="none">
+              <circle cx="8" cy="8" r="7.61" transform="rotate(90 8 8)"></circle>
+            </svg>
+          </div>
+        </div>
+        <i class="btm_border"></i>
+        <div class="triangle"></div>
+        <div class="tab-name">ТЪРСЕНЕ</div>
+      </li>
+      <li title="Известия" id="notifications-btn">
+        @if(this.ViewBag.Notifications != null && this.ViewBag.Notifications > 0)
+        {
+          <div class="notifications-count">@this.ViewBag.Notifications</div>
+        }
+        <i class="fa fa-globe"></i>
+        <div class="triangle"></div>
+        <div class="tab-name">ИЗВЕСТИЯ</div>
+        <span class="name-mini">&nbsp;ИЗВЕСТИЯ</span>
+      </li>
+      <li class="dropdown profile-dropdown-button">
+        <a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle btn-profile" href="#">
+          @if(Request.Cookies["profilePicture"] != null)
+          {
+            <div class="profile-img">
+              <img src="@Request.Cookies["profilePicture"].Value" alt="">
+            </div>
+          }
+          else
+          {
+            <i class="fa fa-user-circle"></i>
+          }
+          <div class="triangle"></div>
+          <div class="profile-name">ПРОФИЛ</div>
+          <span class="name-mini">ПРОФИЛ</span>
+        </a>
+        <ul class="dropdown-menu profile-dropdown">
+          <li><a href="/account">Профил</a></li>
+          <li><a href="/account/edit">Настройки</a></li>
+          @if (User.IsInRole("Admin"))
+          {
+            <li class="divider"></li>
+            <li><a href="/items/add">Нова обява</a></li>
+            <li><a href="/blogs/create">Създай блог</a></li>
+            <li><a href="/admin">Админ панел</a></li>
+          }
+          <li class="divider"></li>
+          <li class="exit-btn">
+            <a href="javascript:document.getElementById('logoutForm').submit()">Изход  <i class="glyphicon glyphicon-off"></i></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  }
+}
+else
+{
+  <ul class="nav navbar-nav navbar-right">
+    <li id="search-box-li">
+      <div class="searchbox-wrap">
+        <input type="text" name="search_word" placeholder="Търсене" />
+        <div class="icn-wrapper">
+          <span><i class="glyphicon glyphicon-search icn-search"></i></span>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="31px" height="31px" viewBox="0 0 16 16" preserveAspectRatio="none">
+            <circle cx="8" cy="8" r="7.61" transform="rotate(90 8 8)"></circle>
+          </svg>
+        </div>
+      </div>
+      <i class="btm_border"></i>
+      <div class="triangle"></div>
+      <div class="tab-name">ТЪРСЕНЕ</div>
+    </li>
+    <li class="divider"></li>
+    <li class="register-tab">
+      @Html.ActionLink("Регистрация", "register", "account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+      @if(HttpContext.Current.Session["ShowRegInfo"] == null)
+      {
+        <div class="triangle"></div>
+        <div class="reg-info-container">
+          <div class="info-content">
+            <p>
+              Присъедини се!
+              <i class="fa fa-close" id="close-reg-info"></i>
+            </p>
+            Отнема само 30 секунди,а отваря толкова много нови възможности.
+          </div>
+        </div>
+      }
+    </li>
+    <li>@Html.ActionLink("Вход", "login", "account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+  </ul>
+}

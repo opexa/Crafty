@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ConciseItemViewModel>
+
+@{
+  ViewBag.Title = ViewBag.CategoryName;
+}
+﻿@section styles {
+  <link href="~/Stylesheets/columns_layout.css" rel="stylesheet" />
+  <link href="~/Stylesheets/section.css" rel="stylesheet" />
+}
+@section scripts {
+  <script src="~/Scripts/columns.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/section.js"></script>
+}
+
+<div id="toggle-sections-menu">МЕНЮ</div>
+<div class="categories-navigation-left">
+  <ul class="sections-navigation">
+    @Html.Partial("_SectionNavigation", new ViewDataDictionary { Model = ViewBag.DropdownSections })
+  </ul>
+</div>
+<div class="categories-container-view">
+  <div class="col-md-11">
+    <h1>@ViewBag.SectionName</h1>
+    <h3><i class="glyphicon glyphicon-share-alt"></i><span id="current-category-name"></span></h3>
+    <hr />
+  </div>
+  <div id="category-top-items">
+    <div class="columns">
+      @Html.DisplayForModel()
+    </div>
+  </div>
+</div>

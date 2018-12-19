@@ -1,0 +1,24 @@
+﻿@model LoginViewModel
+
+<div class="login-dynamic" style="height: 0px">
+  <p>Влез в акаунта си, за да се възползваш от пълната функционалност на Crafty</p>
+  @using (Ajax.BeginForm("login", "account", null, null))
+  {
+    @Html.AntiForgeryToken()
+    <div class="username-section">
+      @Html.LabelFor(model => model.UserName)
+      @Html.EditorFor(model => model.UserName)
+    </div>
+    <div class="password-section">
+      @Html.LabelFor(model => model.Password)
+      @Html.EditorFor(model => model.Password, new { type = "password" })
+    </div>
+    <div class="login-section">
+      <input type="submit" value="Влез" class="btn btn-default submit-login">
+    </div>
+    <div class="register-section">
+      <p>...Или ако все още нямаш регистрация...</p>
+      <a href="/account/register">Регистрация</a>
+    </div>
+  }
+</div>

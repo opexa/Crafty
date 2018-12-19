@@ -1,0 +1,574 @@
+input
+  max-width: 600px
+  @media screen and (max-width: 992px)
+    max-width: 100%
+
+select
+  max-width: 600px
+  @media screen and (max-width: 992px)
+    max-width: 100%
+
+textarea
+  width: 100%
+  height: 110px
+  max-width: 600px
+  box-sizing: border-box
+  padding: 10px
+  border: 1px solid #dddddd
+  @media screen and (max-width: 992px)
+    max-width: 100%
+
+#wrapper
+  height: auto !important
+  
+.body-content.container
+  width: 100%
+  margin: 0 auto
+  padding-left: 270px
+  padding-top: 50px
+  @media screen and (max-width: 1464px)
+    width: calc(100% - 270px)
+    margin: 0px 0px 0px 270px
+    padding-left: 0px
+  @media screen and (max-width: 870px)
+    width: 90%
+    margin: 0 auto
+
+  .add-item-requirements
+    width: 80%
+    margin: 0 auto
+    box-shadow: 0px 1px 3px 3px rgba(33, 33, 33, 0.2)
+    min-height: 100px
+    box-sizing: border-box
+    padding: 40px 20px 20px 20px
+    @media screen and (min-width: 871px) and (max-width: 1333px)
+      width: 80%
+    @media screen and (max-width: 870px)
+      width: 90%
+      margin: 0 auto
+
+    .requirements-heading
+      font-size: 21px
+      color: rgb(133, 133, 133)
+      width: 100%
+      font-weight: 100
+
+      i
+        float: right
+        font-size: 23px
+        color: rgb(212, 55, 55)
+
+    .requirements
+      span
+        a
+          color: #D9230F
+          text-decoration: none
+          &:hover
+            color: rgb(36, 36, 36)
+
+    hr
+      width: 100%
+      margin: 10px 0px 5px 0px
+
+  .page-heading
+    width: 80%
+    margin: 0 auto
+    margin-top: 15px
+    font-size: 5.5rem
+    color: rgb(45, 45, 45)
+    @media screen and (max-width: 1464px)
+      width: 95%
+    @media screen and (min-width: 871px) and (max-width: 1333px)
+      width: 80%
+
+  .page-subheading
+    width: 80%
+    margin: 0 auto
+    font-size: 3rem
+    color: rgb(45, 45, 45)
+    @media screen and (max-width: 1464px)
+      width: 95%
+    @media screen and (min-width: 871px) and (max-width: 1333px)
+      width: 80%
+
+  hr
+    width: 80%
+    margin: 15px auto
+    @media screen and (max-width: 1464px)
+      width: 95%
+    @media screen and (min-width: 871px) and (max-width: 1333px)
+      width: 80%
+
+  form
+    width: 80%
+    margin: 0 auto
+    @media screen and (min-width: 871px) and (max-width: 1333px)
+      width: 80%
+    @media screen and (max-width: 870px)
+      width: 90%
+      margin: 0 auto
+
+    .form-horizontal
+      .form-group
+        margin-left: 0px
+        margin-right: 0px
+
+        .validation
+          width: 100%
+          padding-left: calc(16.66666667%)
+          color: #D9230F
+          @media screen and (min-width: 871px) and (max-width: 1333px)
+            display: block
+            text-align: center
+            width: 100%
+            padding: 0px
+          @media screen and (max-width: 870px)
+            text-align: center
+            padding-left: 0px
+
+        label
+          @media screen and (min-width: 871px) and (max-width: 1333px)
+            display: block
+            text-align: left
+            float: none
+            width: 600px
+            margin: 0 auto
+            padding: 0px
+          @media screen and (min-width: 670px) and (max-width: 870px)
+            width: 90%
+            display: block
+            padding: 0px
+            margin: 0 auto
+            text-align: left
+          @media screen and (max-width: 670px)
+            width: 100%
+            text-align: left
+            padding: 0px
+
+        .input-holder
+          input
+            border-radius: 0px
+            @media screen and (min-width: 871px) and (max-width: 1333px)
+              display: block
+              width: 600px
+              margin: 0 auto
+            @media screen and (min-width: 670px) and (max-width: 870px)
+              width: 90%
+              margin: 0 auto
+              text-align: left
+            @media screen and (max-width: 670px)
+              width: 100%
+
+          textarea
+            border-radius: 0px
+            @media screen and (min-width: 871px) and (max-width: 1333px)
+              display: block
+              width: 600px
+              margin: 0 auto
+            @media screen and (min-width: 670px) and (max-width: 870px)
+              width: 90%
+              margin: 0 5%
+              text-align: left
+            @media screen and (max-width: 670px)
+              width: 100%
+              margin: 0px
+
+          .choose-status-btn
+            width: calc(100% - 16.66666667%)
+            margin-left: 16.66666667%
+            max-width: 600px
+            text-align: center
+            background-color: white
+            border: 1px solid #dddddd
+            border-radius: 2px
+            padding: 7px 0px
+            font-size: 15px
+            transition: all 0.14s ease-in-out
+            -o-transition: all 0.14s ease-in-out
+            -moz-transition: all 0.14s ease-in-out
+            -webkit-transition: all 0.14s ease-in-out
+            cursor: pointer
+            color: #777777
+            &:hover
+              background-color: #D9230F
+              color: white
+            @media screen and (max-width: 1524px)
+              margin-left: 16.66666667%
+            @media screen and (min-width: 871px) and (max-width: 1333px)
+              display: block
+              width: 100%
+              margin: 0 auto
+            @media screen and (min-width: 670px) and (max-width: 870px)
+              max-width: 100%
+              margin: 0 auto
+              width: 90%
+            @media screen and (max-width: 671px)
+              width: 100%
+              margin: 0px
+
+        .buttons-container
+          padding-left: 16.66666667%
+          @media screen and (max-width: 1333px)
+            width: 600px
+            margin: 0 auto
+            padding-left: 0px
+          @media screen and (max-width: 870px)
+            width: 90%
+          @media screen and (max-width: 671px)
+            width: 100%
+
+.pictures-container
+  width: 100%
+  margin: 0 auto
+  height: 400px
+  position: relative
+
+  .banner-image
+    width: 100%
+    height: 100%
+    background-repeat: no-repeat
+    background-size: cover
+    background-attachment: fixed
+    background-position: center centerz
+    box-shadow: 0px 0px 2px 2px rgba(128, 128, 128, 0.36)
+    &:hover
+      cursor: pointer
+      .edit-banner-btn
+        height: 80px
+
+    .edit-banner-btn
+      position: absolute
+      bottom: 0px
+      height: 0px
+      overflow: hidden
+      left: 50%
+      transition: all 0.2s ease-in-out
+      -o-transition: all 0.2s ease-in-out
+      -moz-transition: all 0.2s ease-in-out
+      -webkit-transition: all 0.2s ease-in-out
+      transform: translateX(-50%)
+      -o-transform: translateX(-50%)
+      -moz-transform: translateX(-50%)
+      -webkit-transform: translateX(-50%)
+      width: 200px
+      text-align: center
+      background-color: rgba(129, 129, 129, 0.64)
+      border-radius: 4px 4px 0px 0px
+      -o-border-radius: 4px 4px 0px 0px
+      -moz-border-radius: 4px 4px 0px 0px
+      -webkit-border-radius: 4px 4px 0px 0px
+      i
+        position: relative
+        top: 50%
+        transform: translateY(-50%)
+        -o-transform: translateY(-50%)
+        -moz-transform: translateY(-50%)
+        -webkit-transform: translateY(-50%)
+        font-size: 5rem
+        color: white
+        cursor: pointer
+        transition: all 0.15s ease-in-out
+        -o-transition: all 0.15s ease-in-out
+        -moz-transition: all 0.15s ease-in-out
+        -webkit-transition: all 0.15s ease-in-out
+        &:hover
+          color: rgb(46, 46, 46)
+
+    .profile-image
+      width: 200px
+      height: 200px
+      position: relative
+      top: 50%
+      margin: 0 auto
+      transform: translateY(-50%)
+      &:hover
+        .overlay
+          opacity: 1
+
+      img
+        border-radius: 100px
+        width: 100%
+        height: 100%
+        box-shadow: 3px 3px 1px 1px rgba(0, 0, 0, 0.35)
+
+      .overlay
+        cursor: pointer
+        transition: all 0.15s ease-in-out
+        -o-transition: all 0.15s ease-in-out
+        -moz-transition: all 0.15s ease-in-out
+        -webkit-transition: all 0.15s ease-in-out
+        position: absolute
+        top: 0px
+        left: 0px
+        width: 100%
+        height: 100%
+        background-color: rgba(135, 135, 135, 0.68)
+        opacity: 0
+        border-radius: 50%
+        text-align: center
+        line-height: 200px
+        font-size: 8.5rem
+        color: white
+        box-sizing: border-box
+        padding-left: 20px
+        padding-top: 10px
+
+        i
+          cursor: pointer
+          transition: all 0.15s ease-in-out
+          -o-transition: all 0.15s ease-in-out
+          -moz-transition: all 0.15s ease-in-out
+          -webkit-transition: all 0.15s ease-in-out
+          &:hover
+            color: rgb(46, 46, 46)
+
+.status-dialog-wrapper.bald
+  transition: all 0.5s ease-in-out, background-color 0.1s ease-in-out
+  -o-transition: all 0.5s ease-in-out, background-color 0.1s ease-in-out
+  -moz-transition: all 0.5s ease-in-out, background-color 0.1s ease-in-out
+  -webkit-transition: all 0.5s ease-in-out, background-color 0.1s ease-in-out
+  background-color: transparent
+  transform: scale(0.001)
+
+.status-dialog-wrapper
+  width: 100%
+  height: 100%
+  background-color: rgba(131, 131, 131, 0.34)
+  position: fixed
+  z-index: 99999
+  top: 0px
+  left: 0px
+  transition: all 0.3s ease-in-out, background-color 1s ease-in-out
+  -o-transition: all 0.3s ease-in-out, background-color 1s ease-in-out
+  -moz-transition: all 0.3s ease-in-out, background-color 1s ease-in-out
+  -webkit-transition: all 0.3s ease-in-out, background-color 1s ease-in-out
+  transform: scale(1.0)
+  -o-transform: scale(1.0)
+  -webkit-transform: scale(1.0)
+  -moz-transform: scale(1.0)
+
+  .dialog-container
+    width: 50%
+    margin: 0 auto
+    position: relative
+    top: 50%
+    display: flex
+    justify-content: center
+    transform: translateY(-50%)
+    -o-transform: translateY(-50%)
+    -moz-transform: translateY(-50%)
+    -webkit-transform: translateY(-50%)
+    @media screen and (max-width: 865px)
+      width: 100%
+      top: 80%
+      transform: translateY(-80%)
+      -o-transform: translateY(-80%)
+      -moz-transform: translateY(-80%)
+      -webkit-transform: translateY(-80%)
+
+    .status-option
+      width: 200px
+      height: 200px
+      margin: 0 5px
+      position: relative
+      border: 1px solid rgba(107, 107, 107, 0.51)
+      box-shadow: 0px 0px 2px 2px rgba(142, 142, 142, 0.32)
+      background-color: white
+      transition: all 0.17s ease-in-out
+      -o-transition: all 0.17s ease-in-out
+      -moz-transition: all 0.17s ease-in-out
+      -webkit-transition: all 0.17s ease-in-out
+      cursor: pointer
+      &:hover
+        box-shadow: 0px 0px 7px 7px rgba(142, 142, 142, 0.52)
+        i
+          color: #D9230F
+        span
+          color: #D9230F
+      @media screen and (max-width: 479px)
+        width: 130px
+        height: 130px
+
+      i
+        color: rgb(41, 41, 41)
+        width: 100%
+        display: block
+        text-align: center
+        font-size: 70px
+        line-height: 150px
+        height: 150px
+        transition: all 0.17s ease-in-out
+        -o-transition: all 0.17s ease-in-out
+        -moz-transition: all 0.17s ease-in-out
+        -webkit-transition: all 0.17s ease-in-out
+        @media screen and (max-width: 479px)
+          height: 100px
+          line-height: 100px
+          font-size: 50px
+
+      span
+        display: block
+        color: rgb(41, 41, 41)
+        width: 100%
+        height: 50px
+        line-height: 50px
+        text-align: center
+        font-size: 19px
+        transition: all 0.17s ease-in-out
+        -o-transition: all 0.17s ease-in-out
+        -moz-transition: all 0.17s ease-in-out
+        -webkit-transition: all 0.17s ease-in-out
+        @media screen and (max-width: 479px)
+          height: 30px
+          line-height: 30px
+          font-size: 14px
+
+      .user-status-info
+        position: absolute
+        top: 50%
+        opacity: 0
+        left: -210px
+        width: 200px
+        height: auto
+        background-color: rgb(50, 48, 48)
+        color: white
+        border-radius: 10px
+        box-sizing: border-box
+        padding: 0px 15px
+        transform: translateY(-50%)
+        transition: all 0.2s ease-in-out
+        -o-transition: all 0.2s ease-in-out
+        -moz-transition: all 0.2s ease-in-out
+        -webkit-transition: all 0.2s ease-in-out
+        line-height: 200px
+        @media screen and (max-width: 1333px)
+          opacity: 1
+        @media screen and (max-width: 865px)
+          opacity: 1
+          top: -110px
+          left: 0px
+        @media screen and (max-width: 479px)
+          top: -75px
+          width: 130px
+          height: 130px
+          line-height: 130px
+
+        span
+          text-align: right
+          display: inline-block
+          vertical-align: middle
+          line-height: 17px
+          color: white
+          height: auto
+          font-size: 15px
+          @media screen and (max-width: 479px)
+            font-size: 12px
+            line-height: 11px
+
+      .left-triangle
+        width: 0
+        height: 0
+        opacity: 0
+        top: 50%
+        left: -10px
+        transform: translateY(-50%)
+        -o-transform: translateY(-50%)
+        -moz-transform: translateY(-50%)
+        -webkit-transform: translateY(-50%)
+        transition: all 0.2s ease-in-out
+        -o-transition: all 0.2s ease-in-out
+        -moz-transition: all 0.2s ease-in-out
+        -webkit-transition: all 0.2s ease-in-out
+        position: absolute
+        border-top: 10px solid transparent
+        border-left: 10px solid rgb(50, 48, 48)
+        border-bottom: 10px solid transparent
+        @media screen and (max-width: 1333px)
+          opacity: 1
+        @media screen and (max-width: 865px)
+          top: -17px
+          left: 50%
+          transform: translateX(-50%) rotate(90deg)
+          opacity: 1
+
+      .seller-status-info
+        position: absolute
+        top: 50%
+        right: -210px
+        width: 200px
+        height: 200px
+        background-color: rgb(50, 48, 48)
+        color: white
+        border-radius: 10px
+        box-sizing: border-box
+        padding: 0px 15px
+        transform: translateY(-50%)
+        line-height: 200px
+        opacity: 0
+        transition: all 0.2s ease-in-out
+        -o-transition: all 0.2s ease-in-out
+        -moz-transition: all 0.2s ease-in-out
+        -webkit-transition: all 0.2s ease-in-out
+        @media screen and (max-width: 1333px)
+          opacity: 1
+        @media screen and (max-width: 865px)
+          opacity: 1
+          top: -110px
+          left: 0px
+        @media screen and (max-width: 479px)
+          top: -75px
+          width: 130px
+          height: 130px
+          line-height: 130px
+
+        span
+          text-align: left
+          display: inline-block
+          vertical-align: middle
+          line-height: 17px
+          font-size: 15px
+          color: white
+          height: auto
+          @media screen and (max-width: 479px)
+            font-size: 12px
+            line-height: 11px
+
+      .right-triangle
+        opacity: 0
+        width: 0
+        height: 0
+        top: 50%
+        right: -10px
+        transform: translateY(-50%)
+        -o-transform: translateY(-50%)
+        -moz-transform: translateY(-50%)
+        -webkit-transform: translateY(-50%)
+        transition: all 0.2s ease-in-out
+        -o-transition: all 0.2s ease-in-out
+        -moz-transition: all 0.2s ease-in-out
+        -webkit-transition: all 0.2s ease-in-out
+        position: absolute
+        border-top: 10px solid transparent
+        border-right: 10px solid rgb(50, 48, 48)
+        border-bottom: 10px solid transparent
+        @media screen and (max-width: 1333px)
+          opacity: 1
+        @media screen and (max-width: 865px)
+          top: -17px
+          left: 50%
+          transform: translateX(-50%) rotate(-90deg)
+          opacity: 1
+
+    .user-status-option
+      &:hover
+        .user-status-info
+          opacity: 1
+        .left-triangle
+          opacity: 1
+
+    .seller-status-option
+      &:hover
+        .seller-status-info
+          opacity: 1
+        .right-triangle
+          opacity: 1

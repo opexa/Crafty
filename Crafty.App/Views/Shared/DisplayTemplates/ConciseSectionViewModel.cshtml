@@ -1,0 +1,5 @@
+﻿@model ConciseSectionViewModel
+
+<div class="section-option" data-section-id="@Model.Id">@Model.Name</div>
+
+  @*@Ajax.ActionLink(Model.Name, "Subcategories", "Items", new { Id = Model.Id }, new AjaxOptions() { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "subcategories-wrapper"}, null)*@

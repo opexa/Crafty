@@ -1,0 +1,111 @@
+﻿@model ConcisePurchaseViewModel
+
+<div class="purchase" data-id="@Model.Id" data-postedon="@Model.PostedOn.ToString("yyyy/MM/dd")" data-status="@Model.OrderStatus.ToLower()">
+  <div class="purchase-date">
+    Дата: <span>@Model.PostedOn.ToString("dd.MM.yyyy")</span>
+    <!-- <div class="purchase-options">
+      <i class="fa fa-caret-down"></i>
+      <ul class="purchase-options-menu">
+        <li class="option">
+          Изпрати съобщение <i class="fa fa-envelope-square"></i>
+        </li>
+        @if(Model.OrderStatus == "Awaiting")
+        {
+          <li class="option cancel-order-btn" data-order-id="@Model.Id">
+          @Html.Raw("Откажи поръчката")
+          <i class="fa fa-calendar-times-o"></i>
+          </li>
+        }
+        @if(Model.OrderStatus == "Sent")
+        {
+          <li class="option send-feedback-btn" data-order-id="@Model.Id">
+            @Html.Raw("Получих пратката")
+            <i class="fa fa-check-square-o"></i>
+          </li>
+        }
+        @if(Model.OrderStatus == "Finished")
+        {
+          <li class="option purchase-details-btn" data-order-id="@Model.Id">
+            @Html.Raw("Детайли поръчка")
+            <i class="fa fa-list-alt"></i>
+          </li>
+        }
+      </ul>
+    </div> -->
+  </div>
+  <div class="purchase-item-details">
+    <div class="thumbnail-container">
+      <img src="@Model.ItemThumbnail" alt="">
+    </div>
+    <div class="item-details">
+      <div class="item-title">
+        <a href="/items/details/@Model.ItemId">@Model.ItemTitle</a>
+        <div class="triangle"></div>
+        <div class="popup">ВИЖ ОБЯВАТА</div>
+      </div>
+      <div class="item-price">
+        <i class="fa fa-usd"></i>
+        Цена: <span>@Model.ItemPrice лв.</span>
+      </div>
+      <div class="purchase-order-status">
+        Статус:
+        @switch(Model.OrderStatus)
+          {
+            case "Awaiting":
+              <span>Чакаща <i class="fa fa-hourglass-end"></i></span>
+              break;
+            case "Sent":
+              <span>
+                Изпратена <i class="fa fa-paper-plane-o"></i>
+                @if(Model.OrderTrackingNum != null)
+                {
+                  @Html.Raw("( " + @Model.OrderShippedOn.ToString("dd.MM.yyyy") + " )")
+                }
+              </span>
+              break;
+            case "Finished":
+              <span>Завършена <i class="fa fa-check-circle"></i></span>
+              break;
+            case "Canceled":
+              <span>Отказана <i class="fa fa-times-rectangle"></i></span>
+              break;
+            default: break;
+          }
+      </div>
+      @if(Model.OrderTrackingNum != null && Model.OrderStatus == "Sent")
+      {
+        <div class="tracking-number">
+          Проследяващ номер:
+          <span>@Model.OrderTrackingNum</span>
+        </div>
+      }
+      <div class="item-quantity-price">
+        <div class="total-price-title">Крайна сума</div>
+        <div class="quantity-n-price">
+          <div class="total-price">
+            @{
+              var total = Model.Amount * Model.ItemPrice;
+              string totalPrice = String.Format("{0:0.00}", total);
+              @Html.Raw(totalPrice + " лв.")
+            }
+          </div>
+          <div class="item-quantity">
+          <i class="fa fa-cubes"></i>
+          Kоличество: <span>@Model.Amount бр.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="purchase-seller-details">
+    <div class="seller-username">
+      <i class="fa fa-user-circle"></i>
+      Продавач:
+      <div class="username-container">
+        <a href="/account/users/@Model.SellerUserName">@Model.SellerUserName</a>
+        <div class="triangle"></div>
+        <div class="popup">ПРОФИЛ</div>
+      </div>
+    </div>
+  </div> -->
+</div>

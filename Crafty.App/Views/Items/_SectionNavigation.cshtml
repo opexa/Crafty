@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MenuSectionViewModel>
+
+@foreach (MenuSectionViewModel _section in Model.Where(sec => sec.Categories.Where(c => c.Visible == true).Any()))
+{
+  <li class="section-row @{ if (_section.Name == ViewContext.Controller.ViewBag.SectionName) { @Html.Raw("selected"); } }" data-id="@_section.Id">
+    <span class="section-name"><a href="/items/section/@_section.Id?ctg=@_section.Categories.First().Id">@_section.Name</a></span>
+    <ul class="categories-navigation" data-for-id="@_section.Id">
+      @foreach(MenuCategoryViewModel _category in _section.Categories.Where(c => c.Visible == true))
+      {
+        <li class="category-row@{ if (_section.Name == ViewContext.Controller.ViewBag.CategoryName) { @Html.Raw("selected"); } }" data-id="@_category.Id">@_category.Name</li>
+      }
+    </ul>
+  </li>
+}

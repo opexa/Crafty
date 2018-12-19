@@ -1,0 +1,86 @@
+﻿@model EditBlogBindingModel
+
+@{ ViewBag.Title = "Редакция | " + Model.Title; }
+@section styles {
+  <link rel="stylesheet" href="~/Stylesheets/blogs-create.css">
+  <link rel="stylesheet" href="~/Stylesheets/blogs-edit.css">
+}
+@section scripts {
+  <script src="~/Scripts/blogs-edit.js"></script>
+}
+
+<div class="page-heading">
+  Редакция на блог <i class="fa fa-wpforms "></i>
+</div>
+
+<div class="form-container">
+  <div class="editor-tool">
+    <div class="tools-menu">
+      <div class="tool add-paragraph">
+        <i class="fa fa-paragraph"></i>
+      </div>
+      <div class="tool link">
+        <i class="fa fa-link"></i>
+      </div>
+      <div class="tool bold-text">
+        <i class="fa fa-bold"></i>
+      </div>
+      <div class="tool italic-text">
+        <i class="fa fa-italic"></i>
+      </div>
+      <div class="tool add-image">
+        <i class="fa fa-photo"></i>
+      </div>
+      <div class="tool youtube-video">
+        <i class="fa fa-youtube-play"></i>
+      </div>
+    </div>
+  </div>
+  <div class="form-wrapper">
+  @using(Html.BeginForm("edit", "blogs", FormMethod.Post, new { enctype="multipart/form-data" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="title-section">
+      <div class="title-button">ЗАГЛАВИЕ</div>
+      @Html.TextBoxFor(model => model.Title, new { @class = "title-input", Value = Model.Title })
+    </div>
+    <div class="content-section">
+      <div id="current-content" data-last-img-id="@Model.LastImageId" data-blog-content-id="@Model.BlogContentIdentifier">
+        @Html.Raw(Server.HtmlDecode(Model.Content))
+      </div>
+    </div>
+    <div class="related-items-section">
+      <div class="related-items-section-title">ПРЕПОРЪЧАНИ ИЗДЕЛИЯ</div>
+      @if(Model.CurrentRelatedItems != null && Model.CurrentRelatedItems.Any())
+      {
+        foreach(ConciseItemViewModel item in Model.CurrentRelatedItems)
+        {
+          <div class="related-item active" data-item-id="@item.Id">
+            <div class="related-item-wrapper">
+              <div class="related-item-thumbnail">
+                <img src="@item.Thumbnail" alt="">
+              </div>
+              <div class="related-item-info">
+                <div class="related-item-title">@item.Title</div>
+                <div class="related-item-price">@Html.Raw((string)(item.Price + "лв.").Replace(",", "."))</div>
+              </div>
+              <div class="remove-related-item">ИЗТРИЙ</div>
+            </div>
+          </div>
+        }
+      }
+      <div class="related-item add-related-item">
+        <i class="fa fa-plus-circle"></i>
+      </div>
+    </div>
+    <div class="buttons-section">
+      <div id="submit">Публикувай</div>
+    </div>
+    @Html.HiddenFor(model => model.Content)
+    @Html.HiddenFor(model => model.LastImageId)
+    @Html.HiddenFor(model => model.UpdatedRelatedItems)
+    @Html.HiddenFor(model => model.BlogContentIdentifier)
+  }
+  </div>
+</div>

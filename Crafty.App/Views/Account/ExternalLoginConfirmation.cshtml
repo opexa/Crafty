@@ -1,0 +1,42 @@
+﻿@model ExternalLoginConfirmationViewModel
+@{ ViewBag.Title = "Вход през " + ViewBag.LoginProvider; }
+@section styles {
+  <link href="~/Stylesheets/account-externallogin.css" rel="stylesheet" />
+}
+
+<div class="form-wrapper">
+  @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    <h1 class="page-heading">Успешно свързахте своя @ViewBag.LoginProvider профил с платформата на Crafty.bg</h1>
+    <hr />
+    <h3 class="page-sub-heading">Остана само още една малка стъпка..</h3>
+
+    <p class="text-info">Моля въведете потребителско име, което ще ползвате в нашият сайт.</p>
+
+    <div class="row">
+      <i class="fa fa-caret-down"></i>
+    </div>
+
+    <div class="form-group">
+      <div class="input-holder">
+        <input class="text-box single-line" data-val="true" data-val-required="Моля въведете потребителско име." id="Username" name="Username" value="" placeholder="Потребителско име" type="text">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom invisible" aria-hidden="true"></i>
+        <i class="fa fa-check-circle fa-3x invisible"></i>
+        <i class="fa fa-times-circle fa-3x invisible"></i>
+      </div>
+      @Html.ValidationMessageFor(model => model.Username)
+      <div class="username-taken-error invisible">Това потребителско име е заето</div>
+    </div>
+
+    <div class="form-group">
+      <div class="buttons-container">
+        <input type="submit" name="sumit" id="submit-form" value="ЗАВЪРШИ" />
+      </div>
+    </div>
+  }
+</div>
+
+@section scripts {
+  <script src="~/Scripts/account-externallogin.js"></script>  
+}

@@ -1,0 +1,45 @@
+﻿@model MyItemViewModel
+
+<div class="item" data-id="@Model.Id">
+  <div class="item-img">
+    <img src="@Model.Thumbnail" alt="">
+  </div>
+  <div class="item-info">
+    <p class="item-title">@Model.Title</p>
+    <p class="item-description">@Model.Description</p>
+    <div class="item-price-date">
+      <p class="item-price">@Model.Price лв.</p>
+      <p class="item-date"><span>от</span> @Html.Raw(Model.PostedOn.ToString("dd/MM/yyyy"))</p>
+    </div>
+  </div>
+  <div class="overlay manage-item">
+    <div class="manage-option edit-item" data-id="@Model.Id">
+      <div class="option-name">
+        <div class="heading">РЕДАКТИРАЙ</div>
+        <div class="triangle"></div>
+      </div>
+      <div class="glyphicon glyphicon-cog"></div>
+    </div>
+    <div class="manage-option boost-item">
+      <div class="option-name">
+        <div class="heading">ПРОМОТИРАЙ</div>
+        <div class="triangle"></div>
+      </div>
+      <div class="glyphicon glyphicon-flash"></div>
+    </div>
+    <div class="manage-option see-item" data-id="@Model.Id">
+      <div class="option-name">
+        <div class="heading">ВИЖ</div>
+        <div class="triangle"></div>
+      </div>
+      <div class="glyphicon glyphicon-list-alt"></div>
+    </div>
+    <div class="manage-option delete-item" data-for-id="@Model.Id">
+      <div class="option-name">
+        <div class="heading">ИЗТРИЙ</div>
+        <div class="triangle"></div>
+      </div>
+      <div class="glyphicon glyphicon-trash"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MenuSectionViewModel>
+
+﻿<div class="categories-container">
+  @if (Model != null)
+  {
+    foreach (var sec in Model)
+    {
+      if (this.User.Identity.IsAuthenticated && this.User.IsInRole("Admin"))
+      {
+        <div class="section">
+          <p class="section-heading">
+            <a href="/items/section/@sec.Id?ctg=@sec.Categories.First().Id">@sec.Name</a>
+            @foreach (var category in sec.Categories)
+            {
+            <p class="category" data-id="@category.Id">
+              <a href="/items/section/@sec.Id?ctg=@category.Id">
+                @category.Name
+                @if (category.Visible == true)
+                {
+                  <i class="fa fa-minus-circle hide-category" data-categ-id="@category.Id"></i>
+                }
+                else
+                {
+                  <i class="fa fa-plus-circle show-category" data-categ-id="@category.Id"></i>
+                }
+              </a>
+            </p>
+            }
+            </p>
+          </div>
+      }
+      else
+      {
+        if (sec.Categories.Where(c => c.Visible == true).Any())
+        {
+          <div class="section">
+            <p class="section-heading">
+              <a href="/items/section/@sec.Id?ctg=@sec.Categories.First().Id">@sec.Name</a>
+              @foreach (var category in sec.Categories.Where(c => c.Visible == true))
+              {
+              <p class="category">
+                <a href="/items/section/@sec.Id?ctg=@category.Id">@category.Name</a>
+              </p>
+              }
+              </p>
+            </div>
+        }
+      }
+    }
+  }
+  <a href="/manage/categories"></a>
+</div>

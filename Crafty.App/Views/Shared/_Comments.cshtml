@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BlogCommentViewModel>
+
+@foreach (BlogCommentViewModel comment in Model)
+{
+  <div class="comment" data-id="@comment.Id">
+    <div class="author-picture">
+      <img src="@comment.UserPicture" alt="">
+    </div>
+    <div class="comment-info">
+      <div class="comment-author">@comment.UserName</div>
+      <div class="comment-posted-on">@comment.PostedOn</div>
+      <div class="comment-content">@Html.Details(comment.Content)</div>
+    </div>
+    @if(this.User.Identity.IsAuthenticated)
+    {
+    <div class="comment-options">
+      <i class="fa fa-ellipsis-h expand-options"></i>
+      <div class="options-container">
+        @if (comment.UserName == User.Identity.Name || this.User.IsInRole("Admin"))
+        {
+        <div class="option option-delete">
+          Изтрий
+          <i class="fa fa-close"></i>
+        </div>
+        <div class="option option-edit">
+          Редактирай
+          <i class="fa fa-pencil"></i>
+        </div>
+        }
+        <div class="option option-report">
+          Докладвай
+          <i class="fa fa-exclamation-circle"></i>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+}

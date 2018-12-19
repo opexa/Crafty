@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ConciseItemViewModel>
+
+@{ ViewBag.Title = "Харесани"; }
+
+@section styles {
+  <link href="~/Stylesheets/columns_layout.css" rel="stylesheet" />
+  <link href="~/Stylesheets/account-favourites.css" rel="stylesheet" />
+}
+
+
+@Html.Partial("_AccountNavigation")
+
+<div class="items-container">
+  <p class="page-heading">Харесани изделия</p>
+  <div class="columns">
+    @Html.DisplayForModel()
+  </div>
+</div>
+
+@section scripts {
+  <script src="~/Scripts/account-favourites.js"></script>
+}

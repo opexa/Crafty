@@ -1,0 +1,247 @@
+﻿@model PlaceOrderViewModelBag
+@{ ViewBag.Title = "Потвърждаване на поръчка"; }
+
+@section styles{
+  <link href="~/Stylesheets/order-place.css" rel="stylesheet" />
+}
+
+<div class="order-container">
+  <div class="item-container">
+    <div class="item-wrapper">
+      <div class="item-id">#@Model.ItemViewModel.Id</div>
+      <div class="item-title">
+        <i class="fa fa-caret-right"></i>
+        @Model.ItemViewModel.Title
+      </div>
+      <div class="item-thumbnail">
+        <img src="@Model.ItemViewModel.Thumbnail" alt="">
+      </div>
+      <div class="item-price">
+        <i class="fa fa-usd"></i>
+        @Model.ItemViewModel.Price лв.
+      </div>
+      <div class="item-description">
+        <p>
+          <i class="fa fa-quote-left"></i><span> Описание</span>
+        </p>
+        @Html.Raw(Model.ItemViewModel.Description.Replace(Environment.NewLine, "</br>"))
+      </div>
+    </div>
+  </div>
+
+  <div class="users-container">
+    @using (Html.BeginForm("place", "orders", FormMethod.Post))
+    {
+      @Html.AntiForgeryToken()
+      @Html.HiddenFor(model => model.OrderBindingModel.ItemId, new { Value = Model.ItemViewModel.Id, Name = "ItemId" })
+      @Html.HiddenFor(model => model.OrderBindingModel.SellerId, new { Value = Model.OrderBindingModel.SellerId, Name = "SellerId" })
+      @Html.HiddenFor(model => model.OrderBindingModel.BuyerId, new { Value = Model.OrderBindingModel.BuyerId, Name = "BuyerId" })
+      @Html.HiddenFor(model => model.OrderBindingModel.Quantity, new { Value = Model.OrderBindingModel.Quantity, Name = "Quantity" })
+      <div class="buyer-container">
+        <div class="buyer-section-heading">Данни за доставка</div>
+        <div class="fields-section">
+          <div class="field buyer-names">
+            <p class="field-index"><i class="fa fa-drivers-license-o"></i> Имена</p>
+            <div class="validation">
+              <span class="text-danger" data-valmsg-replace="true" data-valmsg-for="ShippingFullName"></span>
+            </div>
+            <div class="field-editor invisible">
+              @Html.EditorFor(model => model.OrderBindingModel.ShippingFullName, new { htmlAttributes = new { @class = "field-editor-input", Name = "ShippingFullName" } })
+            </div>
+            <div class="field-value">
+              @if (Model.OrderBindingModel.ShippingFullName != null)
+              {
+                <span class="value-span">@Model.OrderBindingModel.ShippingFullName</span>
+              }
+              else
+              {
+                <span class="value-span">Посочете имена за доставка</span>
+              }
+              <span class="value-span">@Model.BuyerViewModel.FirstName @Model.BuyerViewModel.LastName</span>
+              <div class="edit-field">
+                <i class="fa fa-pencil edit-field-btn"></i>
+                <div class="triangle"></div>
+                <div class="edit-popup">ПРОМЕНИ</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field buyer-city">
+            <p class="field-index"><i class="fa fa-globe"></i> Град</p>
+            <div class="validation">
+              <span class="text-danger" data-valmsg-replace="true" data-valmsg-for="ShippingCity"></span>
+            </div>
+            <div class="field-editor invisible">
+              @Html.EditorFor(model => model.OrderBindingModel.ShippingCity, new { htmlAttributes = new { @class = "field-editor-input", Name = "ShippingCity" } })
+            </div>
+            <div class="field-value">
+              @if (Model.BuyerViewModel.City != null)
+              {
+                <span class="value-span">@Model.BuyerViewModel.City</span>
+              }
+              else
+              {
+                <span class="value-span">Посочете град за доставка</span>
+              }
+              <div class="edit-field">
+                <i class="fa fa-pencil edit-field-btn"></i>
+                <div class="triangle"></div>
+                <div class="edit-popup">ПРОМЕНИ</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field buyer-address">
+            <p class="field-index"><i class="fa fa-location-arrow"></i> Адрес</p>
+            <div class="validation">
+              <span class="text-danger" data-valmsg-replace="true" data-valmsg-for="ShippingAddress"></span>
+            </div>
+            <div class="field-editor invisible">
+              @Html.EditorFor(model => model.OrderBindingModel.ShippingAddress, new { htmlAttributes = new { @class = "field-editor-input", Name = "ShippingAddress" } })
+            </div>
+            <div class="field-value">
+              @if (Model.BuyerViewModel.ShippingAddress != null)
+              {
+                <span class="value-span">@Model.BuyerViewModel.ShippingAddress</span>
+              }
+              else
+              {
+                <span class="value-span">Посочете адрес за доставка</span>
+              }
+              <div class="edit-field">
+                <i class="fa fa-pencil edit-field-btn"></i>
+                <div class="triangle"></div>
+                <div class="edit-popup">ПРОМЕНИ</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field buyer-phone">
+            <p class="field-index"><i class="fa fa-phone"></i> Телефон</p>
+            <div class="validation">
+              <span class="text-danger" data-valmsg-replace="true" data-valmsg-for="ShippingPhone"></span>
+            </div>
+            <div class="field-editor invisible">
+              @Html.EditorFor(model => model.OrderBindingModel.ShippingPhone, new { htmlAttributes = new { @class = "field-editor-input", Name = "ShippingPhone" } })
+            </div>
+            <div class="field-value">
+              @if (@Model.BuyerViewModel.PhoneNumber != null)
+              {
+                <span class="value-span">@Model.BuyerViewModel.PhoneNumber</span>
+              }
+              else
+              {
+                <span class="value-span">Посочете телефон за връзка</span>
+              }
+              <div class="edit-field">
+                <i class="fa fa-pencil edit-field-btn"></i>
+                <div class="triangle"></div>
+                <div class="edit-popup">ПРОМЕНИ</div>
+              </div>
+            </div>
+          </div>
+
+          @*<div class="field buyer-email">
+            <p class="field-index"><i class="fa fa-envelope"></i> E-mail</p>
+            <div class="validation">
+              <span class="text-danger" data-valmsg-replace="true" data-valmsg-for="ShippingEmail"></span>
+            </div>
+            <div class="field-editor invisible">
+              @Html.EditorFor(model => model.OrderBindingModel.ShippingEmail, new { htmlAttributes = new { @class = "field-editor-input", Name = "ShippingEmail" } })
+            </div>
+            <div class="field-value">
+              <span class="value-span">@Model.BuyerViewModel.Email</span>
+              <div class="edit-field">
+                <i class="fa fa-pencil edit-field-btn"></i>
+                <div class="triangle"></div>
+                <div class="edit-popup">ПРОМЕНИ</div>
+              </div>
+            </div>
+          </div>*@
+
+          <div class="field order-details">
+            <p class="field-index"><i class="fa fa-commenting"></i> Детайли</p>
+            <div class="validation">
+              <span class="text-danger" data-valmsg-replace="true" data-valmsg-for="Details"></span>
+            </div>
+            <div class="field-editor invisible">
+              @Html.TextAreaFor(model => model.OrderBindingModel.Details, htmlAttributes: new { @class = "field-editor-input", Name = "Details" })
+            </div>
+            <div class="field-value">
+              @if (Model.OrderBindingModel.Details != null)
+              {
+                <span class="value-span">@Model.OrderBindingModel.Details</span>
+              }
+              else
+              {
+                <span class="value-span">Опишете детайли за вашата поръчка</span>
+              }
+              <div class="edit-field">
+                <i class="fa fa-pencil edit-field-btn"></i>
+                <div class="triangle"></div>
+                <div class="edit-popup">ПРОМЕНИ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seller-container">
+        <div class="seller-section-heading">Информация за продавача</div>
+        <div class="sections">
+          <div class="info-section">
+            <div class="seller-name">
+              <i class="fa fa-user-circle"></i>
+              <a href="/account/users/@Model.SellerViewModel.UserName" target="_blank">@Model.SellerViewModel.UserName</a>
+            </div>
+            @if(Model.SellerViewModel.City != null)
+            {
+              <div class="seller-city">
+                <i class="fa fa-location-arrow"></i>&nbsp;
+                @Model.SellerViewModel.City
+              </div>
+            }
+            @if(Model.SellerViewModel.PhoneNumber != null)
+            {
+              <div class="seller-phone">
+                <i class="fa fa-mobile-phone"></i>&nbsp;
+                @Model.SellerViewModel.PhoneNumber
+              </div>
+            }
+            <div class="seller-email">
+              <i class="fa fa-envelope-open-o"></i>
+              @Model.SellerViewModel.Email
+            </div>
+          </div>
+
+          <div class="profile-picture-section">
+            <img src="@Model.SellerViewModel.ProfileImg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="final-quotes-container">
+        <div class="amount-section">Количество: @Model.OrderBindingModel.Quantity бр.</div>
+        <div class="price-section">
+          <p>Крайна цена:</p>
+          <div class="total-price">
+            @{
+              var total = Model.OrderBindingModel.Quantity * Model.ItemViewModel.Price;
+              string totalPrice = String.Format("{0:0.00}", total);
+              @Html.Raw(totalPrice + " лв.")
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons-container">
+        <input type="submit" name="submit" value="Поръчай" />
+        <a class="cancel-order-btn" href="/items/details/@Model.ItemViewModel.Id">Откажи</a>
+      </div>
+    }
+  </div>
+</div>
+
+@section scripts {
+  <script src="~/Scripts/order-place.js"></script>
+}

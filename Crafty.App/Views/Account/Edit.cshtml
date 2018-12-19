@@ -1,0 +1,171 @@
+﻿@model EditAccountBindingModel
+@section styles {
+  <link href="~/Stylesheets/account-edit.css" rel="stylesheet" />
+}
+
+@{
+  ViewBag.Title = "Редактиране на профил";
+}
+@Html.Partial("_AccountNavigation")
+
+@if(this.ViewBag.ShowAddingAdRequirements == true)
+{
+  <div class="add-item-requirements">
+    <p class="requirements-heading">
+      Профилът ти не позволява опцията добавяне на обяви.
+      <i class="fa fa-warning"></i>
+    </p>
+    <hr>
+    <div class="requirements">
+      <span>За да можеш да ползваш сайта като продавач, трябва да се <a href="/account/register?sender=acc_edit">регистрираш</a> като такъв.</span>
+    </div>
+  </div>
+}
+
+<div class="page-heading">Редактирай</div>
+<div class="page-subheading">@ViewBag.Username</div>
+<hr />
+
+
+@using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+  @Html.AntiForgeryToken()
+
+  <div class="form-horizontal">
+    <div class="form-group">
+      <div class="pictures-container">
+        <div class="banner-image" style="background-image: url('@Model.ProfileBanner')">
+          <div class="edit-banner-btn">
+            <i class="fa fa-file-photo-o"></i>
+          </div>
+          @Html.HiddenFor(model => model.ProfileBanner)
+          <input type="file" class="hidden" value="@Model.ProfileBanner" name="banner_img"/>
+          <div class="profile-image">
+            <img src="@Model.ProfileImg" alt="">
+            <div class="overlay">
+              <i class="fa fa-edit"></i>
+            </div>
+            @Html.HiddenFor(model => model.ProfileImg)
+            <input type="file" class="hidden" value="@Model.ProfileImg" name="profile_img"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.FullName)
+      </div>
+      @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    @*<div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.LastName)
+      </div>
+      @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>*@
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.ShippingAddress)
+      </div>
+      @Html.LabelFor(model => model.ShippingAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.ShippingAddress, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.PhoneNumber)
+      </div>
+      @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.City)
+      </div>
+      @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.Email)
+      </div>
+      @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.Description)
+      </div>
+      @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    @*<div class="form-group">
+      @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        <div class="choose-status-btn">
+          @if(Model.Status == "Seller")
+          {
+            @Html.Raw("Продавач")
+          }
+          else
+          {
+            @Html.Raw("Потребител")
+          }
+        </div>
+        @if(Model.Status == "Seller")
+        {
+          @Html.HiddenFor(model => Model.Status, htmlAttributes: new { @class = "hidden", Value = "0" })
+        }
+        else
+        {
+          @Html.HiddenFor(model => Model.Status, htmlAttributes: new { @class = "hidden", Value = "1" })
+        }
+
+      </div>
+    </div>*@
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(model => model.Website)
+      </div>
+      @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="buttons-container">
+        <input type="submit" value="Запази" class="btn btn-success" />
+        <a class="btn btn-danger" href="/account">Откажи</a>
+      </div>
+    </div>
+  </div>
+}
+
+@section scripts {
+  <script src="~/Scripts/account-edit.js"></script>
+}

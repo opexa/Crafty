@@ -1,0 +1,195 @@
+﻿@model ItemDetailsViewModel
+
+<div class="item-container" data-id="@Model.Id">
+  <div class="pictures-section-container">
+    <div class="pictures-section-wrapper">
+      <div id="main-picture">
+        <div class="main-picture-wrapper">
+          <img src="@Model.Pictures.First()" alt="">
+        </div>
+      </div>
+      <div class="item-pictures">
+        @if(Model.Pictures.Count() > 3)
+        {
+          <div class="carousel carousel-up">
+            <i class="fa fa-chevron-up"></i>
+          </div>
+        }
+        <div class="dragdealer pictures-wrapper" id="pictures-slider">
+          <div class="handle pictures-container">
+            @for (int i = 0; i < Model.Pictures.Count(); i++)
+            {
+              <div class="item-picture">
+                <img src="@Model.Pictures[i]" alt="">
+              </div>
+            }
+          </div>
+        </div>
+        @if(Model.Pictures.Count() > 3)
+        {
+          <div class="carousel carousel-down">
+            <i class="fa fa-chevron-down"></i>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="details-container">
+    <div class="column-one">
+      <div class="details-wrapper">
+        <div class="item-title">
+          @Model.Title
+          <ul class="item-options hidden-options">
+            <li><i class="fa fa-caret-down"></i></li>
+            <li class="options-li">
+              <div class="options-container">
+                <ul>
+                  @*<li class="opt">
+                    СПОДЕЛИ
+                    <i class="glyphicon glyphicon-share"></i>
+                  </li>*@
+                  <li class="opt" id="item-to-favs" data-item-id="@Model.Id">
+                    @if(!Model.InFavourites)
+                    {
+                      @Html.Raw("ДОБАВИ В ЛЮБИМИ <i class=\"glyphicon glyphicon-star-empty\"></i>")
+                    }
+                    else
+                    {
+                      @Html.Raw("МАХНИ ОТ ЛЮБИМИ <i class=\"glyphicon glyphicon-star\"></i>")
+                    }
+                  </li>
+                  @if (this.User.IsInRole("Admin") || (Model.Seller.UserName == this.User.Identity.Name && Request.Cookies["userStatusCookie"] != null && Request.Cookies["userStatusCookie"].Value == "Seller"))
+                  {
+                    <li class="opt">
+                      <a href="/items/edit/@Model.Id">
+                        РЕДАКТИРАЙ
+                        <i class="glyphicon glyphicon-pencil"></i>
+                      </a>
+                    </li>
+                  }
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="item-price">
+          <i class="fa fa-usd"></i>
+          ЦЕНА:
+          <span class="price-value">
+            @Model.Price лв.
+          </span>
+        </div>
+        <div class="item-shipping">
+          <i class="fa fa-truck"></i>
+          БЕЗПЛАТНА ДОСТАВКА
+        </div>
+        @if (Model.Description != null)
+        {
+          <div class="item-details">
+            Повече:
+            <div class="details-content">
+              @Html.Details(Model.Description)
+            </div>
+          </div>
+        }
+      </div>
+      <div class="likes-wrapper">
+        <span class="like-item-button liked-@ViewBag.Liked.ToString().ToLower()"  data-item-id="@Model.Id">
+          @if (this.ViewBag.Liked)
+          {
+            @Html.Raw("Не харесвам")
+          }
+          else
+          {
+            @Html.Raw("Харесай")
+          }
+        </span>
+        @if (Model.Likes > 0)
+        {
+          <span class="likes-counter">
+            <i class="fa fa-thumbs-o-up"></i>&nbsp;
+            <span class="int">@Model.Likes</span>
+          </span>
+        }
+        else
+        {
+          <span class="likes-counter">Бъди първия харесал</span>
+        }
+      </div>
+    </div>
+    <div class="column-two">
+      <div class="quantity-wrapper">
+        @if(Model.Quantity > 0 && Model.Quantity < 6)
+        {
+          switch(Model.Quantity)
+          {
+            case 1:
+              <span class="limited-amount">
+                ЕДИНСТВЕНА БРОЙКА
+                <i class="fa fa-lightbulb-o"></i>
+              </span>
+              break;
+            case 2:
+              <span class="limited-amount">
+                ПОСЛЕДНИ 2 БРОЙКИ
+                <i class="fa fa-lightbulb-o"></i>
+              </span>
+              break;
+            case 3:
+              <span class="limited-amount">
+                ПОСЛЕДНИ 3 БРОЙКИ
+                <i class="fa fa-lightbulb-o"></i>
+              </span>
+              break;
+            case 4:
+              <span class="limited-amount">
+                ПОСЛЕДНИ 4 БРОЙКИ
+                <i class="fa fa-lightbulb-o"></i>
+              </span>
+              break;
+            case 5:
+              <span class="limited-amount">
+                ПОСЛЕДНИ 5 БРОЙКИ
+                <i class="fa fa-lightbulb-o"></i>
+              </span>
+              break;
+            default: break;
+          }
+        }
+        else if(Model.Quantity > 5)
+        {
+          <div class="lot-quantity">
+            <span>Наличност: </span>
+            <span class="availability-value">@Model.Quantity бр.</span>
+          </div>
+        }
+        else
+        {
+          <span class="out-of-stock">
+            Изчерпано количество
+            <i class="fa fa-times-circle"></i>
+          </span>
+        }
+      </div>
+      <div class="buttons-wrapper">
+        @if(Model.Quantity == 1)
+        {
+          <div class="buy-last">
+            <a id="buy-last-btn" href="/orders/place?i=@Model.Id&q=1">КУПИ</a>
+          </div>
+        }
+        else if(Model.Quantity > 1)
+        {
+          <div class="buy-many">
+            <input type="text" id="order-quantity" style="width: 0px; border: none; padding: 0px" value="1">
+            <div id="place-order">
+              <i class="fa fa-caret-left"></i>
+              КУПИ
+            </div>
+          </div>
+          <div id="val-error" class="empty"></div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+﻿@model EditItemBindingModel
+@{ ViewBag.Title = "Редактиране на обява"; }
+@section styles {
+  <link href="~/Stylesheets/edit-item.css" rel="stylesheet" />
+}
+<div class="wrapper">
+  <div class="edit-item-form">
+    <h1>Редактиране на обява</h1>
+    <h3>@Model.Title</h3>
+    @using (Html.BeginForm("Edit", "Items", new { id = Model.Id }, FormMethod.Post, htmlAttributes: new { id = "edit-form", enctype = "multipart/form-data" }))
+    {
+      @Html.ValidationSummary()
+      @Html.AntiForgeryToken()
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.Title)
+        <div class="input-holder">
+          @Html.EditorFor(model => model.Title)
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        <div class="input-group">
+          <div class="input-holder">
+            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Цена", data_val_number = "Цената трябва да бъде число." } })
+            <span class="input-group-addon">лв</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label" })
+        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+        <div class="input-holder">
+          <div class="item-category-edit" id="edit-item-category">@this.ViewContext.Controller.ViewBag.CategoryName</div>
+          @Html.HiddenFor(model => model.CategoryId)
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        <div class="input-holder">
+          @Html.TextAreaFor(model => model.Description)
+        </div>
+      </div>
+
+      <div class="form-group">
+        @Html.LabelFor(model => model.OldPictures)
+        <div id="pictures-container">
+          <table class="input-holder">
+            <tbody>
+              <tr>
+                @for (int i = 0; i < 3; i++)
+                {
+                  if (Model.OldPictures.Count - 1 >= i)
+                  {
+                    <td>
+                      <div class="preview-layer old-img-remove-preview" data-show-id="@(i+1)">
+                        <img src="@Model.OldPictures[i]" alt="" />
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                      </div>
+                      <div class="img-upload-btn hidden-upload-btn" data-input-id="@(i+1)"><i class="glyphicon glyphicon-picture"></i></div>
+                      @Html.TextBoxFor(model => model.OldPictures, new { @Value = Model.OldPictures[i], @class = "btn btn-primary item-img-upload", type = "text", data_field_id = i+1 })
+                    </td>
+                  }
+                  else
+                  {
+                    <td>
+                      <div class="preview-layer img-remove-preview preview-hidden" data-show-id="@(i+1)">
+                        <img src="" alt="" />
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                      </div>
+                      <div class="img-upload-btn" data-input-id="@(i+1)"><i class="glyphicon glyphicon-picture"></i></div>
+                      @Html.TextBoxFor(model => model.NewPictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = i+1 })
+                    </td>
+                  }
+                }
+              </tr>
+              <tr>
+                @for (int i = 3; i < 6; i++)
+                {
+                  if (Model.OldPictures.Count - 1 >= i)
+                  {
+                    <td>
+                      <div class="preview-layer old-img-remove-preview" data-show-id="@(i+1)">
+                        <img src="@Model.OldPictures[i]" alt="" />
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                      </div>
+                      <div class="img-upload-btn hidden-upload-btn" data-input-id="@(i+1)"><i class="glyphicon glyphicon-picture"></i></div>
+                      @Html.TextBoxFor(model => model.OldPictures, new { @Value = Model.OldPictures[i], @class = "btn btn-primary item-img-upload", type = "text", data_field_id = i+1 })
+                    </td>
+                  }
+                  else
+                  {
+                    <td>
+                      <div class="preview-layer img-remove-preview preview-hidden" data-show-id="@(i+1)">
+                        <img src="" alt="" />
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                      </div>
+                      <div class="img-upload-btn" data-input-id="@(i+1)"><i class="glyphicon glyphicon-picture"></i></div>
+                      @Html.TextBoxFor(model => model.NewPictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = i+1 })
+                    </td>
+                  }
+                }
+              </tr>
+              <tr>
+                @for (int i = 6; i < 9; i++)
+                {
+                  if (Model.OldPictures.Count - 1 >= i)
+                  {
+                    <td>
+                      <div class="preview-layer old-img-remove-preview" data-show-id="@(i+1)">
+                        <img src="@Model.OldPictures[i]" alt="" />
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                      </div>
+                      <div class="img-upload-btn hidden-upload-btn" data-input-id="@(i+1)"><i class="glyphicon glyphicon-picture"></i></div>
+                      @Html.TextBoxFor(model => model.OldPictures, new { @Value = Model.OldPictures[i], @class = "btn btn-primary item-img-upload", type = "text", data_field_id = i+1 })
+                    </td>
+                  }
+                  else
+                  {
+                    <td>
+                      <div class="preview-layer img-remove-preview preview-hidden" data-show-id="@(i+1)">
+                        <img src="" alt="" />
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                      </div>
+                      <div class="img-upload-btn" data-input-id="@(i+1)"><i class="glyphicon glyphicon-picture"></i></div>
+                      @Html.TextBoxFor(model => model.NewPictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = i+1 })
+                    </td>
+                  }
+                }
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="side-helper">
+    <div class="field-helper hidden-helper">
+    </div>
+    <div class="buttons-container">
+      <div id="submit-edit-form" class="submit">запази</div>
+      <div id="delete-item">изтрий</div>
+    </div>
+  </div>
+</div>
+@Html.Partial("_Sections", new ViewDataDictionary() { Model = ViewBag.Sections })
+
+@section scripts {
+  <script src="~/Scripts/edit-item.js"></script>
+  <script>markSec(@ViewBag.SectionId, @Model.CategoryId);</script>
+}

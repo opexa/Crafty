@@ -1,0 +1,71 @@
+﻿@model ConciseNotificationViewModel
+
+<div class="notification@{ if(Model.Seen == false) { @Html.Raw(" unseen"); }}" data-read="@Model.Seen.ToString().ToLower()" data-id="@Model.Id">
+  <a class="inner-wrapper" href="
+    @switch(Model.Type)
+    {
+      case "NewOrder":
+        @Html.Raw("/orders/awaiting")
+        break;
+      case "SentOrder":
+        @Html.Raw("/account/purchases")
+        break;
+      case "FinishedOrder":
+        @Html.Raw("/account/purchases")
+        break;
+      case "ItemComment":
+        @Html.Raw("/items/details/" + Model.ObjectId)
+        break;
+      case "BlogComment":
+        @Html.Raw("/blogs/details/" + Model.ObjectId)
+        break;
+      default: break;
+    }">
+    <div class="notification-content">
+      @switch(Model.Type)
+      {
+        case "NewOrder":
+          <span class="sender-name">@Model.SenderName</span>
+          <span class="notification-action"> направи поръчка от вас за:</span>
+          <span class="object-name">@Model.ObjectName</span>
+          break;
+
+        case "SentOrder":
+          <span class="sender-name">@Model.ObjectName</span>
+          <span class="notification-action"> е изпратена от продавача и идва към вас.</span>
+          break;
+
+        case "FinishedOrder":
+          <span class="notification-action">Вашата поръчка е завършена.</span>
+          <span class="object-name">@Model.ObjectName</span>
+          break;
+
+        case "ItemComment":
+          <span class="sender-name">@Model.SenderName</span>
+          <span class="notification-action"> коментира ваша обява: </span>
+          <span class="object-name">@Model.ObjectName</span>
+          break;
+
+        case "BlogComment":
+          <span class="sender-name">@Model.SenderName</span>
+          <span class="notification-action"> коментира статията: </span>
+          <span class="object-name">@Model.ObjectName</span>
+          break;
+        default: break;
+      }
+      <div class="posted-on">
+        @Html.Raw(Model.PostedOn.ToRelativeDateString())
+      </div>
+    </div>
+  </a>
+  <div class="mark-read-btn" data-id="@Model.Id">
+    <div class="icon
+      @{
+        if(Model.Seen == false)
+        {
+          @Html.Raw(" unseen")
+        }
+      }
+    "></div>
+  </div>
+</div>

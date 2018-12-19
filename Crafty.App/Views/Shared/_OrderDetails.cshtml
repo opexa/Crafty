@@ -1,0 +1,193 @@
+﻿@model OrderDetailsViewModel
+
+<div class="details-container" data-order-id="@Model.OrderId">
+  <div class="details-container-heading">
+    Детайли за поръчка
+  </div>
+  <div class="details-container-content">
+    <div class="item-name">
+      Обява:&nbsp;
+      <a href="/items/details/@Model.ItemId">@Model.ItemTitle</a>
+    </div>
+    <div class="item-details">
+      <div class="item-thumbnail">
+        <img src="@Model.ItemThumbnail" alt="">
+      </div>
+      <div class="details">
+        <div class="item-id">#@Model.ItemId</div>
+        <div class="item-posted-on">
+          Качена на: <span>@Model.ItemPostedOn.ToString("dd.MM.yyyy")</span>
+        </div>
+        <div class="item-price">
+          <i class="fa fa-usd"></i>
+          <span>@Model.ItemPrice лв.</span>
+        </div>
+      </div>
+      <div class="buyer-details">
+        <div class="hoverable buyer-username">
+          <i class="fa fa-user-circle"></i>
+          @if(this.Request.QueryString["r"] == "buyer")
+          {
+            @Html.Raw("Продавач: ")
+          }
+          else
+          {
+            @Html.Raw("Купувач: ")
+          }
+          <a href="/account/users/@Model.OrderBuyerUsername">@Model.OrderBuyerUsername</a>
+          <div class="triangle"></div>
+          <div class="popup">ПРОФИЛ</div>
+        </div>
+        <div class="order-shipping-names">
+          Имена:
+          <span>@Model.OrderShippingFullName</span>
+        </div>
+        <div class="order-shipping-address">
+          Адрес:
+          <span>@Model.OrderShippingAddress</span>
+        </div>
+        <div class="order-shipping-city">
+          Град:
+          <span>@Model.OrderShippingCity</span>
+        </div>
+        @if(Model.OrderDetails != null)
+        {
+          <div class="order-placing-details">
+            <div class="heading">Детайли: </div>
+            <div class="content">
+              @Html.Details(Model.OrderDetails)
+            </div>
+          </div>
+        }
+        <div class="order-amount-total">
+          <span class="amount">
+            Количество:&nbsp;
+            <span>@Model.OrderAmount</span>
+          </span>
+          <span class="total">
+            Обща сума:&nbsp;
+            <span>
+              @{
+                var total = Model.OrderAmount * Model.ItemPrice;
+                string totalPrice = String.Format("{0:0.00}", total);
+                @Html.Raw(totalPrice + " лв.")
+              }
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="order-details">
+      <div class="order-posted-on">
+        <i class="fa fa-calendar"></i>&nbsp;
+        Дата на поръчката:
+        <span>
+          @Model.OrderPostedOn.ToString("dd.MM.yyyy")
+        </span>
+      </div>
+      <div class="order-status">
+      @if(Model.OrderStatus == "Canceled")
+      {
+        <div class="order-canceled">
+          Тази поръчка беше отказана.
+        </div>
+        <div class="cancelation-reason">
+          Причина:
+          <span class="reason-content">
+            @Model.BuyerFeedback
+          </span>
+        </div>
+      }
+      @if(Model.OrderStatus == "Finished")
+      {
+        <div class="order-finished">
+          Поръчката завършена.
+          <i class="fa fa-check-circle"></i>
+        </div>
+      }
+      </div>
+    </div>
+    @*@if(Model.OrderStatus == "Finished")
+    {
+      <div class="feedback-section">
+        <div class="buyer-feedback">
+          <div class="stars">
+            <span class="title">
+              @if(Model.OrderBuyerUsername == this.User.Identity.Name && this.Request.QueryString["r"] == "buyer")
+              {
+                @Html.Raw("Вашата оценка: ")
+              }
+              else
+              {
+                <span class="username">@Model.OrderBuyerUsername</span>
+                @Html.Raw("ви оцени с:")
+              }
+             </span>
+            <div class="stars-container">
+              @for(int i = 0; i < Model.BuyerGivenStars; i++)
+              {
+                <i class="fa fa-star"></i>
+              }
+            </div>
+          </div>
+          <div class="feedback">
+            @if (Model.OrderBuyerUsername == this.User.Identity.Name && this.Request.QueryString["r"] == "buyer")
+            {
+              @Html.Raw("Отзива ви: ")
+            }
+            else
+            {
+              <div class="section-title">Неговото мнение: </div>
+            }
+            <div class="feedback-content">
+              @Html.Details(Model.BuyerFeedback)
+            </div>
+          </div>
+        </div>
+        <div class="seller-feedback" @if (Model.SellerFeedback == null && this.Request.QueryString["r"] == "seller" && Model.SellerUsername == this.User.Identity.Name) { @Html.Raw("style='height: 0px'") }>
+        @if(Model.SellerFeedback != null)
+        {
+          <div class="stars">
+            <span class="title">
+              @if(Model.OrderBuyerUsername == this.User.Identity.Name && this.Request.QueryString["r"] == "buyer")
+              {
+                @Html.Raw("Вашата оценка: ")
+              }
+              else
+              {
+                <span class="username">@Model.SellerUsername</span>
+                @Html.Raw("ви оцени с:")
+              }
+            </span>
+            <div class="stars-container">
+              @for(int i = 0; i < Model.SellerGivenStars; i++)
+              {
+                <i class="fa fa-star"></i>
+              }
+            </div>
+          </div>
+          <div class="feedback">
+            @if (Model.OrderBuyerUsername == this.User.Identity.Name && this.Request.QueryString["r"] == "buyer")
+            {
+              @Html.Raw("Отзива ви: ")
+            }
+            else
+            {
+              <div class="section-title">Неговото мнение: </div>
+            }
+            <div class="feedback-content">
+              @Html.Details(Model.SellerFeedback)
+            </div>
+          </div>
+        }
+        </div>
+        @if(Model.SellerFeedback == null && this.Request.QueryString["r"] == "seller" && Model.SellerUsername == this.User.Identity.Name)
+        {
+          <div id="send-seller-feedback">
+            Оценете клиента
+          </div>
+        }
+      </div>
+    }*@
+  </div>
+</div>

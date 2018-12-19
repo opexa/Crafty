@@ -1,0 +1,624 @@
+@keyframes popProfileImg
+  0%
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+  35%
+    transform: scale(1.1) rotate(30deg)
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+  75%
+    transform: scale(1.1) rotate(-30deg)
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+  100%
+    transform: scale(1)
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+
+@-webkit-keyframes popProfileImg
+  0%
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+  35%
+    transform: scale(1.1) rotate(30deg)
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+  75%
+    transform: scale(1.1) rotate(-30deg)
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+  100%
+    transform: scale(1)
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+
+@keyframes scaleLikeButton
+  0%
+    transform: scale(1.1)
+  50%
+    transform: scale(1.15)
+  100%
+    transform: scale(1)
+
+@-webkit-keyframes scaleLikeButton
+  0%
+    transform: scale(1.1)
+  50%
+    transform: scale(1.15)
+  100%
+    transform: scale(1)
+
+#wrapper
+  height: auto !important
+
+html
+  height: 100%
+  width: 100%
+  body
+    height: 100%
+    width: 100%
+    padding-bottom: 0px
+    .body-content
+      height: 100%
+      width: 90%
+
+.navigation
+  font-size: 16px
+  margin-top: 20px
+  word-spacing: 5px
+  padding-bottom: 20px
+  padding-left: 0px
+  border-bottom: 1px solid rgba(#D9230F, 0.7)
+
+  a
+    color: rgb(50, 50, 50)
+    word-spacing: 2px
+    font-size: 17px
+    &:nth-child(1)
+      font-weight: bold
+
+.wrapper-container
+  padding: 0px
+  min-height: 100%
+
+#item-wrapper
+  padding: 0px
+  margin-top: 40px
+
+  .item-container
+    padding: 0px
+
+    .pictures-container
+      padding: 0px
+
+      .current-picture
+        width: 100%
+        overflow: hidden
+        box-sizing: border-box
+        background: rgba(136, 136, 136, 0.27)
+        box-shadow: 0px 0px 3px 3px rgba(136, 136, 136, 0.54)
+
+        img
+          max-width: 100%
+          max-height: 100%
+          left: 50%
+          position: relative
+          top: 50%
+          transform: translateY(-50%) translateX(-50%)
+
+      .pictures-wrapper
+        width: 100%
+
+        .pictures-table
+          margin-top: 10px
+          display: block
+          width: 100%
+          tbody
+            display: block
+            width: 100%
+            tr
+              display: block
+              padding-top: 2px
+              padding-bottom: 2px
+              width: 100%
+              td
+                display: inline-block
+                width: 33.3333%
+                transition: all 0.2s ease-in-out
+                -o-transition: all 0.2s ease-in-out
+                -moz-transition: all 0.2s ease-in-out
+                -webkit-transition: all 0.2s ease-in-out
+                background-blend-mode: overlay
+                &:hover
+                  filter: opacity(50%)
+                img
+                  cursor: pointer
+                  width: 98%
+                  display: block
+                  margin: 0 auto
+                  transition: all 0.2s ease-in-out
+                  -o-transition: all 0.2s ease-in-out
+                  -moz-transition: all 0.2s ease-in-out
+                  -webkit-transition: all 0.2s ease-in-out
+
+
+    .details-container
+      box-sizing: border-box
+      padding: 0px 0px 0px 18px
+      @media screen and (max-width: 992px)
+        padding-left: 0px
+        margin-top: 20px
+
+      .item-info
+        div
+          width: 100%
+
+        .item-id
+          position: relative
+
+          .item-options.hidden-options
+            height: 24px
+
+            .options-li
+              opacity: 0
+
+          .item-options
+            overflow-y: hidden
+            font-size: 15px
+            position: absolute
+            right: 0px
+            top: 0px
+            list-style-type: none
+            text-align: right
+            padding: 0px
+            margin-right: 20px
+            height: 135px
+            width: 220px
+            transition: all 0.2s ease-in-out
+            -o-transition: all 0.2s ease-in-out
+            -moz-transition: all 0.2s ease-in-out
+            -webkit-transition: all 0.2s ease-in-out
+            @media screen and (max-width: 767px)
+              margin-right: 0px
+
+            li
+              width: 215px
+              margin: 0 auto
+              cursor: pointer
+
+              i
+                margin-right: 10px
+                font-size: 20px
+                color: rgb(140, 139, 139)
+                cursor: pointer
+                transition: all 0.2s ease-in-out
+                -o-transition: all 0.2s ease-in-out
+                -moz-transition: all 0.2s ease-in-out
+                -webkit-transition: all 0.2s ease-in-out
+                &:hover
+                  color: rgb(61, 61, 61)
+                @media screen and (max-width: 767px)
+                  margin-right: 0px
+
+            .options-li
+              border-radius: 7px
+              overflow: hidden
+              opacity: 1
+              box-shadow: 0px 0px 1px 1px rgba(140, 140, 140, 0.22)
+
+              .options-container
+                width: 100%
+                ul
+                  list-style: none
+                  padding: 0px
+
+                  .opt
+                    background-color: white
+                    padding: 7px 10px
+                    transition: all 0.1s ease-in-out
+                    -o-transition: all 0.1s ease-in-out
+                    -moz-transition: all 0.1s ease-in-out
+                    -webkit-transition: all 0.1s ease-in-out
+                    &:hover
+                      background-color: #D9230F
+                      color: white
+                    &:nth-child(1)
+                      border-radius: 7px 7px 0px 0px
+                    &:last-child
+                      border-radius: 0px 0px 7px 7px
+
+                    i
+                      padding-left: 2px
+                      vertical-align: baseline
+                      font-size: 12px
+
+                    a
+                      width: 100%
+                      height: 100%
+                      display: block
+                      color: inherit
+                      text-decoration: none
+
+
+        .item-title
+          font-size: 20px
+          color: rgb(40, 40, 40)
+
+        .item-price
+          width: calc(100% - 25px)
+          margin-top: 15px
+          background-color: #D9230F
+          height: 45px
+          color: white
+          line-height: 45px
+          padding: 0px 10px
+          font-size: 20px
+          @media screen and (max-width: 767px)
+            width: 100%
+
+          span
+            font-size: 22px
+            float: right
+
+        .item-quantity
+          // color: rgb(36, 36, 36)
+          width: calc(100% - 25px)
+          background-color: rgba(#D9230F, 1)
+          min-height: 45px
+          color: white
+          line-height: 45px
+          padding: 0px 10px
+          font-size: 20px
+          position: relative
+          overflow: hidden
+          &:before
+            height: 1px
+            width: 95%
+            position: absolute
+            top: 0px
+            left: 2.5%
+            content: ""
+            display: block
+            background-color: rgba(255 , 255, 255, 0.5)
+          @media screen and (max-width: 767px)
+            width: 100%
+
+          span
+            font-weight: 700
+            float: right
+            @media screen and (max-width: 767px)
+              float: none
+              white-space: pre
+
+        .item-description
+          margin-top: 30px
+
+          .description-heading
+            font-size: 18px
+            width: 100px
+            margin: 0 auto
+            border-bottom: 1px solid rgb(108, 108, 108)
+            text-align: center
+
+          .description-content
+            margin-top: 16px
+            font-size: 16px
+
+          .intext-link
+            color: rgb(207, 27, 27)
+
+        .item-likes
+          margin-top: 40px
+
+          .like-item-button
+            display: inline-block
+            padding: 4px 8px
+            border-radius: 3px
+            background-color: #D9230F
+            font-size: 15px
+            color: white
+            cursor: pointer
+            transition: all 0.2s ease-in-out
+            -o-transition: all 0.2s ease-in-out
+            -moz-transition: all 0.2s ease-in-out
+            -webkit-transition: all 0.2s ease-in-out
+            &:hover
+              animation: scaleLikeButton 0.6s
+
+          .likes-counter
+            font-size: 16px
+            margin-left: 10px
+
+        .item-buy
+          position: relative
+          margin-top: 15px
+          height: 36.5667px
+          // @media screen and (max-width: 610px)
+          &:before
+            content: ""
+            display: block
+            width: calc(100% - 15px)
+            height: 1px
+            background-color: rgba(71, 71, 71, 0.16)
+          @media screen and (max-width: 767px)
+            height: 180px
+            width: 100%
+
+          .amount-section
+            position: absolute
+            right: 115px
+            width: 100px
+            top: 130px
+            @media screen and (max-width: 767px)
+              right: 100px
+              top: 172px
+
+            #order-amount-input
+              border-radius: 2px
+              border: 1px solid #dddddd
+              padding: 6px
+              width: 70px
+              text-align: right
+              &:focus
+                box-shadow: 0px 0px 2px 2px #dddddd
+                -o-box-shadow: 0px 0px 2px 2px #dddddd
+                -moz-box-shadow: 0px 0px 2px 2px #dddddd
+                -webkit-box-shadow: 0px 0px 2px 2px #dddddd
+
+          #order-submit-btn
+            display: inline-block
+            width: 100px
+            position: absolute
+            right: 15px
+            vertical-align: baseline
+            border: 2px solid rgb(48, 108, 224)
+            text-align: center
+            padding: 7px 14px
+            cursor: pointer
+            transition: all 0.13s ease-in-out
+            -o-transition: all 0.13s ease-in-out
+            -moz-transition: all 0.13s ease-in-out
+            -webkit-transition: all 0.13s ease-in-out
+            top: 128px
+            &:hover
+              background: rgb(13, 139, 210)
+              color: white
+              border-color: rgb(13, 139, 210)
+            @media screen and (max-width: 767px)
+              right: 0px
+              top: 170px
+
+          .fa.fa-spinner
+            position: absolute
+            right: 220px
+            top: 135px
+            @media screen and (max-width: 767px)
+              right: 205px
+
+          #val-error
+            display: block
+            width: 100%
+            top: 185px
+            position: absolute
+            right: 15px
+            text-align: right
+            color: rgb(209, 46, 46)
+
+    .seller-info-section
+      margin-top: 160px
+      padding: 0px
+      text-align: center
+      @media screen and (max-width: 767px)
+        margin-top: 100px
+
+      .seperation-line
+        width: 100%
+        height: 1px
+        background: -moz-linear-gradient(left, rgba(147,147,147,0) 25%, rgba(147,147,147,0.8) 39%, rgba(147,147,147,0.95) 42%, rgba(140,140,140,1) 43%, rgba(91,91,91,1) 50%, rgba(140,140,140,1) 57%, rgba(147,147,147,0.95) 58%, rgba(147,147,147,0.8) 61%, rgba(147,147,147,0) 77%)
+        background: -webkit-linear-gradient(left, rgba(147,147,147,0) 25%,rgba(147,147,147,0.8) 39%,rgba(147,147,147,0.95) 42%,rgba(140,140,140,1) 43%,rgba(91,91,91,1) 50%,rgba(140,140,140,1) 57%,rgba(147,147,147,0.95) 58%,rgba(147,147,147,0.8) 61%,rgba(147,147,147,0) 77%)
+        background: linear-gradient(to right, rgba(147,147,147,0) 25%,rgba(147,147,147,0.8) 39%,rgba(147,147,147,0.95) 42%,rgba(140,140,140,1) 43%,rgba(91,91,91,1) 50%,rgba(140,140,140,1) 57%,rgba(147,147,147,0.95) 58%,rgba(147,147,147,0.8) 61%,rgba(147,147,147,0) 77%)
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00939393', endColorstr='#00939393',GradientType=1 )
+        margin: 20px auto
+
+      .seller-info-section-heading
+        width: 150px
+        margin: 0 auto
+        border-bottom: 1px solid rgba(125, 125, 125, 0.6)
+        font-size: 18px
+        color: rgb(87, 87, 87)
+
+      .seller-info-name
+        font-size: 17px
+        margin-top: 5px
+        &:hover
+          cursor: pointer
+          text-decoration: underline
+
+        .seller-link
+          text-decoration: none
+          color: #777777
+
+      .seller-profile-picture
+        margin-top: 7px
+        img
+          width: 140px
+          height: 140px
+          border-radius: 70px
+          transition: all 0.1s ease-in-out
+          -o-transition: all 0.1s ease-in-out
+          -moz-transition: all 0.1s ease-in-out
+          -webkit-transition: all 0.1s ease-in-out
+          cursor: pointer
+          &:hover
+            box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.47)
+            animation: popProfileImg 0.8s
+
+      .seller-info-location
+        margin-top: 10px
+        font-size: 17px
+
+      .seller-profile-description
+        margin-top: 7px
+        .content
+          font-size: 16px
+
+.items-suggestions
+  padding: 0px
+  background-color: rgba(126, 126, 126, 0.13)
+  min-height: 950px
+  padding-top: 30px
+  border-radius: 0px 0px 5px 5px
+  @media screen and (max-width: 992px)
+    margin-top: 50px
+    padding-top: 10px
+    padding-bottom: 5px
+    min-height: auto
+
+  .suggestions-heading
+    display: block
+    width: 95%
+    margin: 0 auto
+    font-size: 16px
+    color: rgb(48, 48, 48)
+    text-align: center
+
+    p
+      width: 100%
+      text-align: left
+      padding: 4px 8px
+      background-color: #D9230F
+      border-radius: 4px
+      color: white
+      margin-top: 5px
+
+  .suggestion
+    width: 95%
+    margin: 10px auto
+    height: 110px
+    box-sizing: border-box
+    background-color: white
+    padding: 5px
+    position: relative
+    transition: all 0.20s ease-in-out
+    -o-transition: all 0.20s ease-in-out
+    -moz-transition: all 0.20s ease-in-out
+    -webkit-transition: all 0.20s ease-in-out
+    &:hover
+      filter: opacity(60%)
+
+    a
+      display: block
+      width: 100%
+      height: 100%
+      text-decoration: none
+
+      .suggestion-thumbnail
+        width: 100px
+        height: 100px
+        float: left
+        margin-right: 20px
+
+        img
+          width: 100%
+          height: 100%
+
+      .suggestion-title
+        font-size: 16px
+        line-height: 15px
+        color: rgb(59, 59, 59)
+
+      .suggestion-price
+        color: #D9230F
+
+  .more-suggestions
+    width: 95%
+    margin: 20px auto 10px auto
+    text-align: center
+    font-size: 14px
+    padding-top: 7px
+    border-top: 1px solid rgba(64, 64, 64, 0.3)
+    color: rgba(64, 64, 64, 0.8)
+    cursor: pointer
+    -moz-transition: all 0.2s ease-in-out
+    -o-transition: all 0.2s ease-in-out
+    -webkit-transition: all 0.2s ease-in-out
+    transition: all 0.2s ease-in-out
+    &:hover
+      color: #D9230F
+
+.login-dynamic
+  width: 300px
+  height: 500px
+  border-radius: 6px 6px 0px 0px
+  -o-transition: all 0.3s ease-in-out
+  -webkit-transition: all 0.3s ease-in-out
+  -moz-transition: all 0.3s ease-in-out
+  transition: all 0.3s ease-in-out
+  background-color: rgba(#D9230F, 0.9)
+  position: fixed
+  bottom: 0px
+  top: auto
+  left: 0px
+  right: 0px
+  margin: 0 auto
+
+  p
+    color: white
+    font-size: 17px
+    width: 80%
+    margin: 20px auto
+    text-align: center
+
+  form
+    width: 100%
+    height: 100%
+
+    div
+      width: 90%
+      display: block
+      margin: 0 auto
+
+      label
+        display: block
+        color: white
+        width: 100%
+        font-size: 15px
+
+      input
+        display: block
+        color: black
+        height: 35px
+        border-radius: 4px
+        border: none
+        padding-left: 10px
+        margin: 5px auto 0px auto
+        width: 100%
+
+    .password-section
+      margin-top: 10px
+
+    .login-section
+      position: relative
+      margin-top: 10px
+      display: flex
+      justify-content: flex-start
+
+      .submit-login
+        color: white
+        width: 84px
+
+    .register-section
+      p
+        margin: 5px auto
+      a
+        text-decoration: none
+        display: block
+        width: 100px
+        height: 100px
+        margin: 7px auto 0px auto
+        background-color: white
+        border-radius: 50px
+        color: #D9230F
+        line-height: 100px
+        text-align: center
+        font-weight: bold
+        transition: all 0.16s ease-in-out
+        -o-transition: all 0.16s ease-in-out
+        -moz-transition: all 0.16s ease-in-out
+        -webkit-transition: all 0.16s ease-in-out
+        &:hover
+          box-shadow: 0px 0px 4px 5px white
+          background-color: #D9230F
+          color: white

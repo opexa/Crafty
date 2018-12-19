@@ -1,0 +1,719 @@
+input
+  max-width: 100%
+select
+  max-width: 100%
+textarea
+  max-width: 100%
+
+h3
+  font-weight: bold
+
+#wrapper
+  height: auto !important
+
+.wrapper
+  width: 70%
+  margin: 0px auto
+  padding-top: 60px
+  @media screen and (max-width: 1200px)
+    width: 90%
+
+.edit-item-form
+  width: 70%
+  display: inline-block
+  @media screen and (max-width: 1200px)
+    width: 100%
+
+  form
+    margin-top: 40px
+    width: 100%
+    .form-group
+      width: 95%
+      margin-top: 20px
+      @media screen and (max-width: 1200px)
+        width: 100%
+      label
+        font-size: 16px
+        color: rgb(54, 54, 54)
+        display: block
+
+      .input-holder
+        width: 100%
+        max-width: 100%
+        z-index: 0
+        display: flex
+        justify-content: center
+
+        input
+          width: 100%
+          border: none
+          padding: 7px
+          z-index: 0
+          box-shadow: 0px 0px 1px 1px rgba(133, 133, 133, 0.31)
+          color: rgb(71, 71, 71)
+          &:focus
+            box-shadow: 0px 0px 3px 3px rgba(133, 133, 133, 0.71)
+
+        textarea
+          width: 100%
+          height: 140px
+          border: none
+          padding: 7px
+          color: rgb(71, 71, 71)
+          box-shadow: 0px 0px 1px 1px rgba(133, 133, 133, 0.31)
+          &:focus
+            box-shadow: 0px 0px 3px 3px rgba(133, 133, 133, 0.71)
+
+        #edit-item-category
+          font-size: 16px
+          border: none
+          width: 100%
+          max-width: 100%
+          height: 40px
+          line-height: 40px
+          padding: 10px auto
+          color: rgb(71, 71, 71)
+          text-align: center
+          cursor: pointer
+          transition: all 0.1s ease-in-out
+          -o-transition: all 0.1s ease-in-out
+          -moz-transition: all 0.1s ease-in-out
+          -webkit-transition: all 0.1s ease-in-out
+          box-shadow: 0px 0px 1px 1px rgba(133, 133, 133, 0.31)
+          &:hover
+            box-shadow: 0px 0px 3px 3px rgba(133, 133, 133, 0.71)
+            i
+              padding-right: 12px
+
+      .input-group
+        width: 100%
+
+        .input-holder
+          input
+            border: none
+            width: calc(100% - 36px)
+            display: inline-block
+            border-radius: 0px
+
+        .input-group-addon
+          background-color: white
+          width: 36px
+          height: 36px
+          vertical-align: top
+          font-size: 15px
+          display: inline-block
+          box-shadow: 0px 0px 1px 1px rgba(133, 133, 133, 0.21)
+
+
+#pictures-container
+  display: block
+
+  .input-holder
+    tbody
+      tr
+        td
+          padding: 10px
+          position: relative
+          width: 15vw
+          height: 15vw
+          box-sizing: border-box
+          overflow: hidden
+          @media screen and (max-width: 1200px)
+            width: 170px
+            height: 170px
+          @media screen and (max-width: 556px)
+            width: 120px
+            height: 120px
+          @media screen and (max-width: 410px)
+            width: 75px
+            height: 75px
+            padding: 2px
+
+          .item-image
+            width: 100%
+            height: 100%
+            border-radius: 7px
+            overflow: hidden
+
+            img
+              width: 100%
+              height: 100%
+
+          input
+            display: none
+
+input[type="file"]
+  display: none
+
+.preview-layer
+  position: absolute
+  z-index: 1
+  top: 10px
+  left: 10px
+  width: calc(100% - 20px)
+  height: calc(100% - 20px)
+  border-radius: 7px
+  overflow: hidden
+  box-sizing: border-box
+  @media screen and (max-width: 1200px)
+    width: 170px
+    height: 170px
+  @media screen and (max-width: 555px)
+    width: 100px
+    height: 100px
+  @media screen and (max-width: 410px)
+    width: 73px
+    height: 73px
+    top: 2px
+    left: 2px
+
+  img
+    width: 100%
+    height: 100%
+    border-radius: 7px
+
+.old-img-remove-preview
+  display: inline-block
+  width: calc(100% - 20px)
+  height: calc(100% - 20px)
+  border: none
+  border-radius: 7px
+  background-color: #D9230F
+  transition: all 0.2s ease-in-out
+  cursor: pointer
+  text-align: center
+  box-sizing: border-box
+  margin: 0 4px
+  &:first-of-type, &:last-of-type
+    margin: 0px
+  &:hover
+    background-color: white
+    box-shadow: 0px 0px 5px 5px rgb(236, 85, 70)
+    i
+      color: #D9230F
+      transform: translateY(calc(-50% - 2px)) scale(1.2)
+  @media screen and (max-width: 555px)
+    width: 100px
+    height: 100px
+  @media screen and (max-width: 410px)
+    width: 73px
+    height: 73px
+    &:hover
+      box-shadow: none
+
+  i
+    width: 100%
+    vertical-align: middle
+    font-size: 5vw
+    color: white
+    position: relative
+    top: calc(50% + 2px)
+    transform: translateY(calc(-50% - 2px))
+    position: absolute
+    left: 0px
+    color: white
+    transition: all 0.2s ease-in-out
+    -o-transition: all 0.2s ease-in-out
+    -moz-transition: all 0.2s ease-in-out
+    -webkit-transition: all 0.2s ease-in-out
+    @media screen and (max-width: 555px)
+      font-size: 4.5rem
+    @media screen and (max-width: 410px)
+      font-size: 3rem
+
+.img-remove-preview
+  display: inline-block
+  width: calc(100% - 20px)
+  height: calc(100% - 20px)
+  border: none
+  border-radius: 7px
+  background-color: #D9230F
+  transition: all 0.2s ease-in-out
+  cursor: pointer
+  text-align: center
+  box-sizing: border-box
+  margin: 0 4px
+  &:first-of-type, &:last-of-type
+    margin: 0px
+  &:hover
+    background-color: white
+    box-shadow: 0px 0px 5px 5px rgb(236, 85, 70)
+    i
+      color: #D9230F
+      transform: translateY(calc(-50% - 12px)) scale(1.2)
+  @media screen and (max-width: 555px)
+    width: 100px
+    height: 100px
+  @media screen and (max-width: 410px)
+    width: 73px
+    height: 73px
+    &:hover
+      box-shadow: none
+
+  i
+    width: 100%
+    vertical-align: middle
+    font-size: 5vw
+    color: white
+    position: relative
+    top: calc(50% + 2px)
+    transform: translateY(calc(-50% - 2px))
+    position: absolute
+    left: 0px
+    color: white
+    transition: all 0.2s ease-in-out
+    -o-transition: all 0.2s ease-in-out
+    -moz-transition: all 0.2s ease-in-out
+    -webkit-transition: all 0.2s ease-in-out
+    @media screen and (max-width: 555px)
+      font-size: 4.5rem
+    @media screen and (max-width: 410px)
+      font-size: 3rem
+
+.img-upload-btn
+  width: 100%
+  height: 100%
+  border: none
+  border-radius: 7px
+  background-color: #D9230F
+  transition: all 0.2s ease-in-out
+  -o-transition: all 0.2s ease-in-out
+  -moz-transition: all 0.2s ease-in-out
+  -webkit-transition: all 0.2s ease-in-out
+  cursor: pointer
+  text-align: center
+  box-sizing: border-box
+  // margin: 0 4px
+  &:first-of-type, &:last-of-type
+    margin: 0px
+  &:hover
+    background-color: white
+    box-shadow: 0px 0px 5px 5px #D9230F
+    i
+      color: #D9230F
+      transform: translateY(calc(-50% - 15px)) scale(1.2)
+  @media screen and (max-width: 1200px)
+    width: 170px
+    height: 170px
+  @media screen and (max-width: 555px)
+    width: 100px
+    height: 100px
+  @media screen and (max-width: 410px)
+    width: 75px
+    height: 75px
+
+  i
+    width: 100%
+    vertical-align: middle
+    font-size: 5vw
+    color: white
+    position: relative
+    top: calc(50% + 10px)
+    transform: translateY(calc(-50% - 15px))
+    transition: all 0.2s ease-in-out
+    -o-transition: all 0.2s ease-in-out
+    -moz-transition: all 0.2s ease-in-out
+    -webkit-transition: all 0.2s ease-in-out
+    @media screen and (max-width: 555px)
+      font-size: 4.5rem
+    @media screen and (max-width: 410px)
+      font-size: 3rem
+
+
+.hidden-upload-btn
+  display: none
+
+.preview-hidden
+  display: none
+
+.side-helper
+  display: inline-block
+  position: fixed
+  vertical-align: top
+  width: 20%
+  margin-left: -4px
+  @media screen and (max-width: 1200px)
+    display: block
+    position: relative
+    width: 100%
+    margin: 0 auto
+
+  .field-helper.hidden-helper
+    height: 0px
+    opacity: 0
+    overflow: hidden
+    margin-bottom: 0px
+    padding: 20px 0px
+
+  .field-helper
+    height: 400px
+    width: 100%
+    background-color: white
+    border-radius: 2px
+    opacity: 1
+    box-shadow: 0px 0px 2px 2px rgba(gray, 0.4)
+    transition: all 0.4s ease-in-out
+    -moz-transition: all 0.4s ease-in-out
+    -o-transition: all 0.4s ease-in-out
+    -webkit-transition: all 0.4s ease-in-out
+    padding: 50px 30px 0px 30px
+    text-align: center
+    font-size: 19px
+    color: black
+    font-weight: bold
+    margin-bottom: 50px
+    @media screen and (max-width: 1200px)
+      display: none
+
+    .helper-heading
+      border-bottom: 1px solid rgba(89, 89, 89, 0.64)
+      padding-bottom: 10px
+
+    p
+      margin: 15px
+      font-size: 15px
+      color: rgb(69, 69, 69)
+      font-weight: 100
+
+      i
+        color: #D9230F
+        font-size: 15px
+        transform: rotate(-30deg)
+
+  .buttons-container
+    display: flex
+    justify-content: flex-end
+    @media screen and (max-width: 1200px)
+      width: 100%
+      justify-content: center
+
+    div
+      margin: 0px 5px
+
+    .submit
+      padding: 7px 15px
+      background-color: white
+      border: 4px solid rgb(0, 222, 75)
+      border-radius: 25px
+      font-size: 15.5px
+      text-align: center
+      color: rgb(0, 222, 75)
+      width: 110px
+      cursor: pointer
+      transition: all 0.2s ease-in-out
+      -moz-transition: all 0.2s ease-in-out
+      -o-transition: all 0.2s ease-in-out
+      -webkit-transition: all 0.2s ease-in-out
+      &:hover
+        background-color: rgb(0, 222, 75)
+        color: white
+
+    #delete-item
+      padding: 7px 15px
+      background-color: white
+      border: 4px solid #D9230F
+      border-radius: 25px
+      font-size: 15.5px
+      color: #D9230F
+      width: 110px
+      text-align: center
+      cursor: pointer
+      transition: all 0.2s ease-in-out
+      -moz-transition: all 0.2s ease-in-out
+      -o-transition: all 0.2s ease-in-out
+      -webkit-transition: all 0.2s ease-in-out
+      &:hover
+        color: white
+        background-color: #D9230F
+
+.category-manager.hidden-manager
+  width: 0px
+  left: 0px
+  right: 0px
+  margin: 0 auto
+
+.category-manager.hidden-manager
+  .sections-container
+    width: 0px
+    margin: 0 auto
+    .heading
+      margin: 0px
+      padding: 0px
+      margin-left: -450px
+      font-size: 30px
+
+    #sections-wrapper
+
+.category-manager
+  padding-top: 200px
+  position: fixed
+  z-index: 99999
+  top: 0px
+  left: 0px
+  overflow: hidden
+  right: 0px
+  width: 100%
+  height: 100%
+  margin: 0 auto
+  transition: all 0.55s ease-in-out
+  // background-color: rgba(255, 255, 255, 0.8)
+  background-color: rgba(#2B3E50, 0.9)
+  // background-color: rgba(0, 0, 0, 0.8)
+  @media screen and (max-width: 420px)
+    padding-top: 50px
+
+  .sections-container.hidden-container
+    width: 0px
+    height: 0px
+    margin: 0 auto
+    overflow: hidden
+
+  .sections-container
+    height: 500px
+    border: 0px
+    width: 380px
+    margin: 3% auto 0 auto
+    position: relative
+    text-align: left
+    overflow: hidden
+    transition: width 0.2s ease-in-out 0.6s, height 0.2s ease-in-out 0s
+    background-color: rgba(255, 255, 255, 0.85)
+    @media screen and (max-width: 420px)
+      width: 95%
+      margin-top: 5%
+
+    .heading
+      width: 100%
+      font-size: 30px
+      margin: 0px
+      padding: 5px 5px 0px 20px
+      color: #D9230F
+      transition: margin 0.3s ease-in-out 1.45s
+
+    #sections-wrapper
+      width: 393px
+      height: 412px
+      padding-left: 20px
+      margin: 0 auto
+      transition: all 0.3s ease-in-out 0.8s
+      overflow-y: scroll
+      overflow-x: hidden
+      text-shadow: none
+      @media screen and (max-width: 420px)
+        padding-left: 0px
+        height: 412px
+
+      .section-option
+        width: auto
+        overflow: visible
+        padding: 5px 0px
+        text-align: left
+        margin: 0 auto
+        border: none
+        cursor: pointer
+        border-bottom: 0.01px solid rgba(#D9230F, 0.66)
+        font-size: 16px
+        color: #D9230F
+        transition: all 0.1s ease-in-out
+        &:hover
+          padding-left: 40px
+          color: white
+          background-color: rgba(#D9230F, 1)
+          transform: scale(1.25)
+        &:first-child
+          border-top: none
+        &:last-child
+          border-bottom: none
+        @media screen and (max-width: 420px)
+          font-size: 13px
+          padding-left: 10px
+          &:hover
+            transform: scale(1.105)
+            padding-left: 24px
+
+      .marked-section-option
+        color: white
+        padding-left: 30px
+        margin-left: -30px
+        background-color: rgba(#D9230F, 1)
+        &:hover
+          padding-left: 40px
+          margin-left: 0px
+        @media screen and (max-width: 420px)
+          padding-left: 10px
+          margin-left: 0px
+
+    .escape-button
+      width: 100%
+      height: 40px
+      line-height: 40px
+      background-color: #D9230F
+      bottom: 0px
+      color: white
+      text-align: center
+      cursor: pointer
+      position: absolute
+      left: 0px
+
+  .categories-container.hidden-container
+    width: 0px
+    height: 0px
+    margin: 0 auto
+    overflow: hidden
+
+  .categories-container
+    height: 500px
+    border: 0px
+    width: 380px
+    margin: 3% auto 0 auto
+    text-align: left
+    overflow: hidden
+    transition: all 0.2s ease-in-out 0.3s
+    background-color: rgba(255, 255, 255, 0.85)
+    @media screen and (max-width: 420px)
+      width: 95%
+      height: 467px
+
+    .section-name
+      font-size: 28px
+      color: white
+      text-align: center
+      padding: 10px 15px
+      height: 100px
+      box-sizing: border-box
+      background-color: rgba(#D9230F, 0.9)
+
+    .heading
+      width: 100%
+      font-size: 26px
+      margin: 0px
+      padding: 5px 5px 0px 20px
+      color: #D9230F
+      transition: all 0.3s ease-in-out 1.45s
+      @media screen and (max-width: 420px)
+        font-size: 22px
+        padding-left: 10px
+
+    #categories-wrapper
+      width: 393px
+      height: 318px
+      padding-left: 20px
+      margin: 0 auto
+      transition: all 0.3s ease-in-out 0.8s
+      overflow-y: scroll
+      overflow-x: hidden
+      text-shadow: none
+      @media screen and (max-width: 420px)
+        padding-left: 0px
+        height: 291px
+
+      .category-option
+        width: auto
+        overflow: visible
+        padding: 5px 0px
+        text-align: left
+        margin: 0 auto
+        border: none
+        cursor: pointer
+        border-bottom: 0.01px solid rgba(#D9230F, 0.66)
+        font-size: 16px
+        color: #D9230F
+        transition: all 0.1s ease-in-out
+        &:hover
+          padding-left: 40px
+          color: white
+          background-color: rgba(#D9230F, 1)
+          transform: scale(1.25)
+        &:first-child
+          border-top: none
+        &:last-child
+          border-bottom: none
+        @media screen and (max-width: 420px)
+          font-size: 13px
+          padding-left: 10px
+          &:hover
+            transform: scale(1.105)
+            padding-left: 24px
+
+      .marked-category-option
+        color: white
+        padding-left: 30px
+        margin-left: -30px
+        background-color: rgba(#D9230F, 1)
+        &:hover
+          padding-left: 40px
+          margin-left: 0px
+        @media screen and (max-width: 420px)
+          padding-left: 10px
+          margin-left: 0px
+
+    .back-button
+      width: 100%
+      height: 40px
+      line-height: 40px
+      background-color: #D9230F
+      bottom: 0px
+      text-align: center
+      color: white
+      cursor: pointer
+
+.confirm-form-container
+  position: fixed
+  width: 450px
+  height: 130px
+  z-index: 9999
+  top: 50%
+  transform: translateY(-50%)
+  left: 50%
+  margin-left: -225px
+  background-color: white
+  border-radius: 1px
+  border: 1px solid rgba(48, 48, 48, 0.1)
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.23)
+  transition: all 0.3s ease-in-out
+  -o-transition: all 0.3s ease-in-out
+  -moz-transition: all 0.3s ease-in-out
+  -webkit-transition: all 0.3s ease-in-out
+
+  .form-heading
+    width: 100%
+    text-align: center
+    font-size: 15px
+    box-sizing: border-box
+    padding: 7px
+
+    span
+      font-weight: bold
+
+  .form-buttons
+    width: 100%
+    display: flex
+    justify-content: center
+    position: absolute
+    bottom: 10px
+
+    div
+      padding: 7px 20px
+      border: 3px solid rgb(56, 56, 56)
+      border-radius: 30px
+      margin: 0px 10px
+      cursor: pointer
+      transition: all 0.15s ease-in-out
+      -o-transition: all 0.15s ease-in-out
+      -moz-transition: all 0.15s ease-in-out
+      -webkit-transition: all 0.15s ease-in-out
+      font-size: 14px
+
+    .cancel-button
+      border-color: #D9230F
+      color: #D9230F
+      &:hover
+        background-color: #D9230F
+        color: white
+
+    .confirm-button
+      color: rgb(18, 167, 82)
+      border-color: rgb(18, 167, 82)
+      &:hover
+        background-color: rgb(18, 167, 82)
+        color: white

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ConciseItemViewModel>
+
+<div class="items-suggestions">
+  <span class="suggestions-heading">
+    Препоръчано за вас
+  </span>
+  <div class="items-section">
+    @if(Model.Count() > 4)
+    {
+      <div class="carousel carousel-left">
+        <i class="fa fa-chevron-left"></i>
+      </div>
+    }
+    <div class="dragdealer suggestions-wrapper" id="tablet-slider">
+      <div class="handle suggestions-container">
+        @Html.Partial("_Suggestions", Model)
+      </div>
+    </div>
+    @if(Model.Count() > 4)
+    {
+      <div class="carousel carousel-right">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    }
+  </div>
+</div>

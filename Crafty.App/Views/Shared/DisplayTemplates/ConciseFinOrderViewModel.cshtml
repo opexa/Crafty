@@ -1,0 +1,34 @@
+﻿@model ConciseFinOrderViewModel
+
+<div class="order" data-id="@Model.OrderId">
+  <div class="order-id">#@Model.OrderId</div>
+  <div class="order-content">
+    <div class="order-item-title hoverable">
+      <a href="/items/details/@Model.ItemId">@Model.ItemTitle</a>
+      <div class="triangle" style="display: none"></div>
+      <div class="popup" style="display: none">ОБЯВА</div>
+    </div>
+    <div class="order-posted-on">от @Model.OrderPostedOn.ToString("dd.MM.yyyy")</div>
+    <div class="order-buyer">
+      <i class="fa fa-user-circle"></i> Клиент
+      <span class="hoverable">
+        <a href="/account/users/@Model.OrderBuyerUsername">@Model.OrderBuyerUsername</a>
+        <span class="info-popup">
+          <div class="triangle" style="display: none"></div>
+          <div class="popup" style="display: none">ПРОФИЛ</div>
+        </span>
+      </span>
+    </div>
+    <div class="buttons-container">
+      <div class="order-total">
+        <i class="fa fa-usd"></i>
+        @{
+          var total = Model.OrderAmount * Model.ItemPrice;
+          string totalPrice = String.Format("{0:0.00}", total);
+          @Html.Raw(totalPrice + " лв.")
+        }
+      </div>
+      <div class="order-details" data-order-id="@Model.OrderId">детайли</div>
+    </div>
+  </div>
+</div>

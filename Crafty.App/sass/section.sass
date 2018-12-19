@@ -1,0 +1,205 @@
+html
+  // height: 100%
+  body
+    // height: 100%
+    padding: 0px
+    background-color: rgba(82, 82, 82, 0.06)
+
+  .container.body-content
+    padding: 0px
+    margin: 0px
+    min-height: 100%
+    margin-top: 50px
+    clear: both
+
+    @media screen and (max-width: 900px)
+      overflow-x: hidden
+
+    #toggle-sections-menu
+      position: fixed
+      left: 0px
+      top: 190px
+      width: 100px
+      height: 30px
+      z-index: 20
+      line-height: 30px
+      background-color: rgb(40, 84, 237)
+      color: white
+      display: none
+      transform: rotate(-90deg)
+      transform-origin: 0 0 0
+      text-align: center
+      cursor: pointer
+      transition: all 0.2s ease-in-out
+      -o-transition: all 0.2s ease-in-out
+      -moz-transition: all 0.2s ease-in-out
+      -webkit-transition: all 0.2s ease-in-out
+      &:hover
+        background-color: white
+        color: #D9230F
+        box-shadow: 0px 0px 5px 5px #D9230F
+      @media screen and (max-width: 870px)
+        display: block
+
+.section-page-heading
+  width: 100%
+  font-size: 65px
+  height: 400px
+  line-height: 400px
+  text-align: center
+  position: relative
+
+  span
+    width: 100%
+    position: absolute
+    text-align: center
+    top: 50%
+    transform: translateY(-50%)
+    -webkit-transfortm: translateY(-50%)
+    -moz-transform: translateY(-50%)
+    -o-transform: translateY(-50%)
+    display: block
+    line-height: 65px
+
+@-webkit-keyframes movinggradient
+  0%
+    background-position: right bottom
+  // 70%
+  //   background-position: right bottom
+  100%
+    background-position: left bottom
+
+.navbar.navbar-inverse.navbar-fixed-top.navbar-main
+  margin-bottom: 0px
+  padding-bottom: 0px
+
+.categories-navigation-left
+  width: 16%
+  position: fixed
+  overflow-y: hidden
+  height: 100%
+  display: inline-block
+  vertical-align: top
+  margin: 0px 0px 0px -4px
+  z-index: 10
+  transition: all 0.2s ease-in-out
+  -webkit-transition: all 0.2s ease-in-out
+  -o-transition: all 0.2s ease-in-out
+  -moz-transition: all 0.2s ease-in-out
+  background-color: white
+  border-right: 1px solid rgba(65, 65, 65, 0.15)
+  @media screen and (max-width: 1374px)
+    width: 225px
+  @media screen and (max-width: 870px)
+    width: 0px
+
+  .sections-navigation
+    margin-top: 30px
+    list-style: none
+    padding-left: 0px
+    list-style-position: inside
+
+    .section-row
+      font-size: 17px
+      height: 32px
+      line-height: 32px
+      overflow: hidden
+      cursor: pointer
+      @media screen and (max-width: 870px)
+        font-size: 16px
+        height: 27px
+        line-height: 27px
+
+      .section-name
+        a
+          text-transform: uppercase
+          color: rgb(36, 36, 36)
+          transition: all 0.2s ease-in-out
+          -webkit-transition: all 0.2s ease-in-out
+          -moz-transition: all 0.2s ease-in-out
+          -o-transition: all 0.2s ease-in-out
+          padding-left: 30px
+          display: block
+          width: 100%
+          height: 32px
+          text-decoration: none
+          &:hover
+            background: rgb(40, 84, 237)
+            color: white
+          @media screen and (max-width: 870px)
+            height: 27px
+
+
+      .categories-navigation
+        list-style: none
+        list-style-position: inside
+        margin: 0px
+        padding: 0px
+
+        .category-row
+          color: rgb(249, 116, 41)
+          transition: all 0.1s ease-in-out
+          -webkit-transition: all 0.1s ease-in-out
+          -moz-transition: all 0.1s ease-in-out
+          -o-transition: all 0.1s ease-in-out
+          padding-left: 45px
+          &:hover
+            border-right: 5px solid rgb(249, 116, 41)
+
+        .category-row.selected
+          border-right: 5px solid rgb(249, 116, 41)
+
+
+    .section-row.selected
+      height: auto
+      .section-name
+        a
+          background: rgb(249, 116, 41)
+          color: white
+          &:hover
+            color: white
+            background-color: rgb(249, 116, 41)
+
+.categories-navigation-left.toggle_active
+  width: 225px
+
+.categories-container-view
+  width: 84%
+  display: inline-block
+  vertical-align: top
+  overflow-x: hidden
+  margin: 0px 0px 0px -4px
+  margin-left: 16%
+  @media screen and (max-width: 1374px)
+    margin-left: 225px
+    width: 76%
+  @media screen and (max-width: 870px)
+    width: 100%
+    margin-left: 0px
+
+  .col-md-11
+    @media screen and (max-width: 870px)
+      padding-left: 50px
+    h3
+      margin: 5px
+      height: 35px
+      line-height: 35px
+      box-sizing: border-box
+      i
+        -moz-transform: scale(1, -1)
+        -webkit-transform: scale(1, -1)
+        -o-transform: scale(1, -1)
+        -ms-transform: scale(1, -1)
+        transform: scale(1, -1)
+        margin-top: 7px
+        box-sizing: border-box
+        padding-right: 12px
+      span
+        padding-top: 5px
+        vertical-align: top
+      #current-category-name
+
+// #columns
+//   column-width: 231px
+//   @media screen and (min-width: 885px) and (max-width: 1260px)
+//     column-width: 231px

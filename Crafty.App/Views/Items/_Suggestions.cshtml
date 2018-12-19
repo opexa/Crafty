@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ConciseItemViewModel>
+
+@foreach (ConciseItemViewModel _model in Model)
+{
+  <div class="suggestion" data-id="@_model.Id">
+    <a href="/items/details/@_model.Id">
+      <div class="suggestion-thumbnail">
+        <img src="@_model.Thumbnail" alt="">
+      </div>
+      <div class="suggestion-title">@_model.Title</div>
+      <div class="suggestion-price">
+        <span class="value">@_model.Price лв.</span>
+      </div>
+    </a>
+  </div>
+}

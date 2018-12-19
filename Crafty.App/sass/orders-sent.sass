@@ -1,0 +1,375 @@
+#wrapper
+  height: auto !important
+
+.body-content.container
+  width: 100%
+  margin: 0 auto
+  padding-left: 270px
+  padding-right: 0px
+  padding-top: 50px
+  @media screen and (max-width: 1464px)
+    width: calc(100% - 270px)
+    margin: 0px 0px 0px 270px
+    padding-left: 0px
+  @media screen and (max-width: 870px)
+    width: 90%
+    margin: 0 auto
+
+
+  .page-heading
+    width: 80%
+    margin: 50px auto 0px auto
+    text-align: right
+    &:after
+      display: block
+      content: ""
+      width: 100%
+      height: 1px
+      margin-top: 10px
+      background: rgba(126, 126, 126, 0.34)
+    @media screen and (max-width: 870px)
+      width: 100%
+
+.hoverable
+  a
+    color: rgb(36, 36, 36)
+    font-size: 16.5px
+    text-decoration: none
+    &:hover
+      color: rgb(46, 46, 46)
+
+  .triangle
+    width: 0
+    height: 0
+    opacity: 0
+    margin-left: 5px
+    display: inline-block
+    border-top: 5px solid transparent
+    border-right: 10px solid rgb(27, 27, 27)
+    border-bottom: 5px solid transparent
+    transition: all 0.12s ease-in-out
+    -o-transition: all 0.12s ease-in-out
+    -moz-transition: all 0.12s ease-in-out
+    -webkit-transition: all 0.12s ease-in-out
+
+  .popup
+    opacity: 0
+    display: inline-block
+    margin-left: -5px
+    top: 0px
+    background-color: rgb(27, 27, 27)
+    left: 70px
+    color: white
+    padding: 3px 7px
+    border-radius: 2px
+    font-size: 12px
+    transition: all 0.12s ease-in-out
+    -o-transition: all 0.12s ease-in-out
+    -moz-transition: all 0.12s ease-in-out
+    -webkit-transition: all 0.12s ease-in-out
+
+.orders-container
+  width: 100%
+  padding-top: 30px
+  padding-bottom: 70px
+
+  .order.hidden-order
+    height: 0px
+    overflow: hidden
+    box-shadow: none
+    &:before
+      height: 0px
+
+  .order
+    width: 80%
+    margin: 0 auto
+    box-sizing: border-box
+    overflow: hidden
+    position: relative
+    min-height: 290px
+    margin-top: 35px
+    box-shadow: 0px 2px 3px 2px #dddddd
+    transition: all 0.15s ease-in-out
+    -o-transition: all 0.15s ease-in-out
+    -moz-transition: all 0.15s ease-in-out
+    -webkit-transition: all 0.15s ease-in-out
+    &:before
+      display: block
+      width: 100%
+      content: ""
+      height: 8px
+      background: #0061D2
+    @media screen and (max-width: 870px)
+      width: 100%
+      min-height: 0px
+      max-height:  160px
+      margin-top: 10px
+      padding-bottom: 40px
+
+    .content-wrapper
+      overflow: hidden
+      width: 98%
+      margin: 12px auto 0px auto
+
+      .order-item-thumbnail
+        float: left
+        width: 200px
+        height: 200px
+        border: 1px solid rgba(#dddddd, 1)
+        background: rgba(#dddddd, 0.5)
+        box-shadow: 0px 0px 2px 2px rgba(#dddddd, 1)
+        @media screen and (max-width: 665px)
+          height: 120px
+          width: 120px
+          display: none
+
+        img
+          margin: 0 auto
+          top: 50%
+          position: relative
+          transform: translateY(-50%)
+          -o-transform: translateY(-50%)
+          -moz-transform: translateY(-50%)
+          -webkit-transform: translateY(-50%)
+          max-width: 100%
+          max-height: 100%
+
+      .item-details
+        width: calc(100% - 200px)
+        float: right
+        vertical-align: top
+        padding-left: 10px
+        font-size: 16px
+        color: rgb(36, 36, 36)
+        @media screen and (max-width: 665px)
+          width: 100%
+
+        .order-id
+          font-size: 15px
+          color: rgb(139, 139, 139)
+
+          .order-options.active
+            i
+              color: rgb(36, 36, 36)
+            .order-options-menu
+              opacity: 1
+              box-shadow: 0px 0px 3px 2px #dddddd
+              -o-box-shadow: 0px 0px 3px 2px #dddddd
+              -moz-box-shadow: 0px 0px 3px 2px #dddddd
+              -webkit-box-shadow: 0px 0px 3px 2px #dddddd
+              border: 1px solid #dddddd
+
+          .order-options
+            float: right
+            right: 10px
+            display: block
+            font-size: 35px
+            cursor: pointer
+            line-height: 25px
+            position: relative
+            color: rgb(175, 175, 175)
+            transition: all 0.13s ease-in-out
+            -o-transition: all 0.13s ease-in-out
+            -moz-transition: all 0.13s ease-in-out
+            -webkit-transition: all 0.13s ease-in-out
+            &:hover
+              color: rgb(36, 36, 36)
+
+            i
+              height: 25px
+
+            .order-options-menu
+              font-size: 15px
+              padding-left: 0px
+              overflow: hidden
+              height: 0px
+              margin-left: 0px
+              list-style-type: none
+              list-style-position: inside
+              position: absolute
+              z-index: 2
+              right: -10px
+              text-align: right
+              width: 200px
+              border-radius: 1px
+              -o-border-radius: 1px
+              -moz-border-radius: 1px
+              -webkit-border-radius: 1px
+              box-shadow: none
+              border: none
+              transition: all 0.13s ease-in-out
+              -o-transition: all 0.13s ease-in-out
+              -moz-transition: all 0.13s ease-in-out
+              -webkit-transition: all 0.13s ease-in-out
+
+              .option
+                color: rgb(106, 106, 106)
+                padding: 7px 0px
+                padding-right: 8px
+                transition: all 0.13s ease-in-out
+                -o-transition: all 0.13s ease-in-out
+                -moz-transition: all 0.13s ease-in-out
+                -webkit-transition: all 0.13s ease-in-out
+                cursor: pointer
+                &:hover
+                  background-color: #D9230F
+                  color: white
+
+                i
+                  height: 15px
+                  font-size: 18px
+                  color: rgb(36, 36, 36)
+
+                i.fa.fa-envelope-square
+                  font-size: 21px
+
+        .item-title
+
+        .item-price
+          span
+            font-weight: bold
+
+        .item-posted-on
+          font-size: 14px
+          color: rgb(139, 139, 139)
+
+          i
+            color: rgb(36, 36, 36)
+
+        .order-details
+          box-sizing: border-box
+          margin-top: 25px
+
+          .heading
+            font-weight: bold
+            font-size: 17px
+
+          .order-buyer-name
+            height: 22.85px
+
+          .order-total, .order-sent-date
+            margin-top: 5px
+            &:before
+              margin-bottom: 5px
+              display: block
+              width: 100%
+              height: 1px
+              background: rgb(176, 176, 176)
+              content: ""
+
+            span
+              font-weight: bold
+
+          .order-sent-date, .order-tracking-number
+            .content
+              display: inline-block
+              vertical-align: top
+              line-height: 30px
+            i
+              font-size: 30px
+              color: rgb(108, 217, 113)
+
+          .order-tracking-number
+            span
+              font-weight: bold
+            i
+              color: rgb(66, 66, 66)
+
+          .order-quotes
+            margin-top: 9px
+            border-radius: 4px
+            box-sizing: border-box
+            padding: 8px
+            box-shadow: inset 0px 0px 2px 2px #dddddd
+            border: 1px solid #dddddd
+
+            .section-title
+              font-size: 15px
+              color: rgb(133, 133, 133)
+
+            .intext-link
+              color: rgb(207, 27, 27)
+
+    .actions-wrapper
+      display: block
+      width: 100%
+      padding: 0px 1%
+      margin-top: 15px
+      text-align: right
+      overflow: hidden
+
+      .action
+        float: right
+        width: 40px
+        font-size: 14px
+        height: 40px
+        text-align: center
+        color: white
+        overflow: hidden
+        line-height: 40px
+        cursor: pointer
+        background-color: #F97429
+        transition: all 0.2s ease-in-out
+        -o-transition: all 0.2s ease-in-out
+        -moz-transition: all 0.2s ease-in-out
+        -webkit-transition: all 0.2s ease-in-out
+        border-left: 1px solid white
+        border-radius: 1px solid white
+
+        i
+          font-size: 18px
+
+      .send-message
+        &:hover
+          width: 170px
+
+      .order-sent.active
+        width: 0px
+        &:hover
+          width: 0px
+
+      .order-finished
+        &:hover
+          width: 160px
+
+      .order-sent
+        transition: all 0.2s ease-in-out
+        -o-transition: all 0.2s ease-in-out
+        -moz-transition: all 0.2s ease-in-out
+        -webkit-transition: all 0.2s ease-in-out
+        i
+          margin-left: 3px
+        &:hover
+          width: 120px
+
+        input
+          width: 150px
+          height: 25px
+          border: none
+          cursor: pointer
+          padding-bottom: 0px
+          color: white
+          text-align: right
+          border-bottom: 1px solid white
+          background: rgba(0, 0, 0, 0)
+
+    .expand-order
+      position: absolute
+      bottom: 0px
+      height: 40px
+      width: 100%
+      text-align: center
+      line-height: 40px
+      background-color: rgb(15, 116, 189)
+      color: white
+      font-size: 19px
+      transition: all 0.13s ease-in-out
+      -o-transition: all 0.13s ease-in-out
+      -moz-transition: all 0.13s ease-in-out
+      -webkit-transition: all 0.13s ease-in-out
+      cursor: pointer
+      &:active
+        color: rgb(15, 116, 189)
+        background-color: #FCFCFC
+      @media screen and (min-width: 871px)
+        display: none

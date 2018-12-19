@@ -1,0 +1,27 @@
+@model IEnumerable<ConciseSectionViewModel>
+
+﻿﻿@{ ViewBag.Title = "Настройки | Категории"; }
+@section styles {
+  <link rel="stylesheet" href="~/Stylesheets/edit-categories.css">
+}
+@section scripts {
+  <script src="~/Scripts/edit-categories.js"></script>
+}
+
+<div class="content-wrapper">
+  <div class="page-heading">
+    Редактиране на категории
+  </div>
+  <hr>
+
+  <div class="sections-wrapper">
+  @foreach(ConciseSectionViewModel sec in Model)
+  {
+    <div class="section" data-id="@sec.Id">
+      <span class="section-name">
+        @sec.Name
+      </span>
+    </div>
+  }
+  </div>
+</div>

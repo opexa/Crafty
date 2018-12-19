@@ -1,0 +1,24 @@
+﻿@model ProfileDetailsViewModel
+@{
+  ViewBag.Title = this.User.Identity.Name + " - Профил";
+}
+@Html.Partial("_AccountNavigation")
+@Html.DisplayForModel()
+
+@section styles {
+  <link href="~/Stylesheets/account.css" rel="stylesheet" />
+}
+
+@section scripts {
+  <script>
+  //   $(document).ready(function () {
+  //     var imgHeight = $(".user-picture").find("div.img-circle").css("width");
+  //     $(".user-picture").find("div.img-circle").css("height", imgHeight);
+  //   });
+  //
+  //   $(window).resize(function () {
+  //     var imgHeight = $(".user-picture").find("div.img-circle").css("width");
+  //     $(".user-picture").find("div.img-circle").css("height", imgHeight);
+  //   });
+  </script>
+}

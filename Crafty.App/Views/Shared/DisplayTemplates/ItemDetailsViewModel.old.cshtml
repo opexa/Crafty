@@ -1,0 +1,128 @@
+﻿@model ItemDetailsViewModel
+
+<div class="col-md-12 item-container" data-id="@Model.Id">
+  <div class="col-md-6 pictures-container">
+    <div class="current-picture">
+      <img src="@Model.Pictures.First()">
+    </div>
+    <div class="pictures-wrapper">
+      <table class="pictures-table">
+        <tbody>
+          <tr>
+            @for (int i = 0; i < Model.Pictures.Count(); i++)
+            {
+              if (i == 2 || i == 5 || i == 9)
+              {
+                @Html.Raw("<td><img src=\"" + @Model.Pictures[i] + "\" alt=\"Item Image\" /></td></tr>")
+              }
+              else if (i == 3 || i == 6)
+              {
+                @Html.Raw("<tr><td><img src=\"" + @Model.Pictures[i] + "\" alt=\"Item Image\" /></td>")
+              }
+              else
+              {
+                @Html.Raw("<td><img src=\"" + @Model.Pictures[i] + "\" alt=\"Item Image\" /></td>");
+              }
+            }
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6 details-container">
+    <div class="item-info">
+      <div class="item-id" data-id="@Model.Id">
+        #@Model.Id
+        <ul class="item-options hidden-options">
+          <li><i class="glyphicon glyphicon-chevron-down"></i></li>
+          <li class="options-li">
+            <div class="options-container">
+              <ul>
+                <li class="opt">
+                  СПОДЕЛИ
+                  <i class="glyphicon glyphicon-share"></i>
+                </li>
+                <li class="opt" id="item-to-favs" data-item-id="@Model.Id">
+                  @if(!Model.InFavourites)
+                  {
+                    @Html.Raw("ДОБАВИ В ЛЮБИМИ <i class=\"glyphicon glyphicon-star-empty\"></i>")
+                  }
+                  else
+                  {
+                    @Html.Raw("МАХНИ ОТ ЛЮБИМИ <i class=\"glyphicon glyphicon-star\"></i>")
+                  }
+                </li>
+                @if (this.User.IsInRole("Admin") || (Model.Seller.UserName == this.User.Identity.Name && Request.Cookies["userStatusCookie"] != null && Request.Cookies["userStatusCookie"].Value == "Seller"))
+                {
+                  <li class="opt">
+                    <a href="/items/edit/@Model.Id">
+                      РЕДАКТИРАЙ
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                  </li>
+                }
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="item-title">@Model.Title</div>
+      <div class="item-description">
+        <p class="description-heading">Описание</p>
+        <p class="description-content">
+          @Html.Details(Model.Description)
+        </p>
+      </div>
+      <div class="item-likes">
+        <span class="like-item-button" data-item-id="@Model.Id">
+          @if (this.ViewBag.Liked)
+          {
+            @Html.Raw("Не харесвам")
+          }
+          else
+          {
+            @Html.Raw("Харесай")
+          }
+        </span>
+        @if (Model.Likes > 0)
+        {
+          <span class="likes-counter">
+            <i class="glyphicon glyphicon-thumbs-up"></i>
+            <span class="int">@Model.Likes</span>
+          </span>
+        }
+        else
+        {
+          <span class="likes-counter">Бъди първия харесал</span>
+        }
+      </div>
+      <div class="item-buy">
+      <div class="item-price">Цена: <span>@Model.Price лв.</span></div>
+      <div class="item-quantity">Налично количество: <span>@Model.Quantity бр.</span></div>
+        <div class="amount-section">
+          <input id="order-amount-input" type="text" name="order-amount" value="1"/> бр.
+        </div>
+        <div id="order-submit-btn">Поръчай</div>
+        <i id="loading-availability" class="fa fa-spinner fa-pulse fa-2x fa-fw margin-bottom hidden" aria-hidden="true"></i>
+        <div id="val-error"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 seller-info-section">
+    <div class="seperation-line"></div>
+    <p class="seller-info-section-heading">За продавача...</p>
+    <p class="seller-info-name">
+      <a class="seller-link" href="/account/users/@Model.Seller.UserName">@Model.Seller.UserName</a>
+    </p>
+    @if(Model.Seller.ProfileImg != null)
+    {
+      <div class="seller-profile-picture">
+        <img src="@Model.Seller.ProfileImg" alt="Seller Profile" />
+      </div>
+    }
+    <p class="seller-info-location">от  @Model.Seller.City</p>
+    <div class="seller-profile-description">
+      <span class="content">@Model.Seller.Description</span>
+    </div>
+  </div>
+</div>

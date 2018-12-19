@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ConciseSectionViewModel>
+
+<div class="category-manager hidden-manager">  
+  <div class="sections-container">
+    <div class="heading">Изберете отдел</div>
+    <div id="sections-wrapper">
+      @Html.DisplayForModel()
+    </div>
+    <div class="escape-button">затвори</div>
+  </div>
+
+  <div class="categories-container hidden-container">
+    <div class="section-name"></div>
+    <div class="heading">Изберете категория</div>
+    <div id="categories-wrapper">
+    </div>
+    <div class="back-button">назад</div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+﻿@model RegisterViewModel
+@{
+  ViewBag.Title = "Регистрация";
+}
+@section styles {
+  <link href="~/Stylesheets/register.css" rel="stylesheet" type="text/css"/>
+}
+
+<h2 class="page-heading">Регистрирай се.</h2>
+<h4 class="page-sub-heading">Присъедини се към нас...</h4>
+<hr />
+
+<div class="form-container">
+  @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+  {
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.UserName)
+      </div>
+      @Html.LabelFor(m => m.UserName, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", Placeholder = "Потребителско име" })
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.FullName)
+      </div>
+      @Html.LabelFor(m => m.FullName, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", Placeholder = "Имена" })
+      </div>
+    </div>
+
+    @*<div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.LastName)
+      </div>
+      @Html.LabelFor(m => m.LastName, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+      </div>
+    </div>*@
+
+    @*<div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.Status)
+      </div>
+      @Html.LabelFor(m => m.Status, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        <div class="choose-status-btn">
+          @if(Model.Status != "")
+          {
+            if(Model.Status == "0")
+            {
+              @Html.Raw("Продавач")
+            }
+            else if(Model.Status == "1")
+            {
+              @Html.Raw("Потребител")
+            }
+          }
+          else
+          {
+            @Html.Raw("ИЗБЕРИ")
+          }
+        </div>
+        @Html.HiddenFor(m => m.Status, new { @class = "form-control status-select" , Value = Model.Status })
+      </div>
+    </div>*@
+
+    @*<div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
+      </div>
+      @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+      </div>
+    </div>*@
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.Email)
+      </div>
+      @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", Placeholder = "Имейл" })
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.Password)
+      </div>
+      @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", Placeholder = "Парола" })
+      </div>
+    </div>
+
+    @*<div class="form-group">
+      <div class="validation">
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+      </div>
+      @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label" })
+      <div class="input-holder">
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+      </div>
+    </div>*@
+
+    <div class="form-group">
+      <div class="buttons-container">
+        <input type="submit" class="btn btn-default" value="Регистрация" />
+      </div>
+    </div>
+  }
+</div>
+
+<div class="layers-container">
+  <div class="layer" id="first-layer">
+    <span>Подари красив и уникален подарък на приятел или близък.</span>
+  </div>
+</div>
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+  <script src="~/Scripts/register.js"></script>
+}

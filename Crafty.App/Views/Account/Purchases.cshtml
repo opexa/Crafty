@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ConcisePurchaseViewModel>
+@{
+    ViewBag.Title = "Моите поръчки";
+}
+
+@section styles {
+  <link href="~/Stylesheets/account-purchases.css" rel="stylesheet" />
+  <link rel="stylesheet" href="~/Content/bootstrap-datetimepicker.min.css" />
+  <link href="~/Stylesheets/perfect-scrollbar.min.css" rel="stylesheet" />
+}
+
+@Html.Partial("_AccountNavigation")
+<h1 class="page-heading">Моите поръчки <span class="dash">-</span> история</h1>
+
+<div class="filter-bar">
+  <div class="date-filter">
+    <div class="input-group picker start-date" id='start-date-picker'>
+      <input type='text' data-format="yyyy-MM-dd hh:mm:ss" class="form-control" id="startdate-input"/>
+      <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+      </span>
+    </div>
+    <span class="dash">-</span>
+    <div class="input-group picker end-date" id='end-date-picker'>
+      <input type='text' data-format="yyyy-MM-dd hh:mm:ss" class="form-control" id="enddate-input"/>
+      <span class="input-group-addon">
+        <span class="fa fa-calendar"></span>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="purchases-container">
+  @Html.DisplayForModel()
+</div>
+
+@section scripts {
+  <script type="text/javascript" src="~/Scripts/account-purchases.js"></script>
+<script src="~/Scripts/perfect-scrollbar.jquery.js"></script>
+<script src="~/Scripts/perfect-scrollbar.min.js"></script>
+}

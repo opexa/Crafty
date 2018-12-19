@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ConciseItemViewModel>
+
+@{ ViewBag.Title = "Любими"; }
+
+@section styles {
+  <link href="~/Stylesheets/columns_layout.css" rel="stylesheet" />
+  <link href="~/Stylesheets/account-favourites.css" rel="stylesheet" />
+}
+
+
+@Html.Partial("_AccountNavigation")
+
+<div class="items-container">
+  <p class="page-heading" >Любими изделия</p>
+  <div class="columns">
+    @if(Model.Any())
+    {
+      @Html.DisplayForModel()
+    }
+    else
+    {
+      <div class="missing-data">Все още не си харесал никое изделие :/</div>
+    }
+  </div>
+</div>
+
+@section scripts {
+  <script src="~/Scripts/account-favourites.js"></script>
+}

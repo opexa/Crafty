@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ConciseOrderViewModel>
+@{ ViewBag.Title = "Чакащи поръчки"; }
+
+@section styles {
+  <link rel="stylesheet" href="~/Stylesheets/orders-awaiting.css">
+}
+
+@Html.Partial("_AccountNavigation")
+<h1 class="page-heading">Чакащи поръчки</h1>
+
+<div class="orders-container">
+  @Html.DisplayForModel()
+</div>
+
+@section scripts {
+  <script src="~/Scripts/orders-awaiting.js"></script>
+}

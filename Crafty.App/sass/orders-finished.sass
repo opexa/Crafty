@@ -1,0 +1,595 @@
+#wrapper
+  height: auto !important
+
+.body-content.container
+  width: 100%
+  margin: 0 auto
+  padding-left: 270px
+  padding-right: 0px
+  padding-top: 50px
+  @media screen and (max-width: 1464px)
+    width: calc(100% - 270px)
+    margin: 0px 0px 0px 270px
+    padding-left: 0px
+  @media screen and (max-width: 870px)
+    width: 95%
+    margin: 0 auto
+
+  .page-heading
+    width: 80%
+    margin: 50px auto 0px auto
+    text-align: right
+    &:after
+      display: block
+      content: ""
+      width: 100%
+      height: 1px
+      margin-top: 10px
+      background: rgba(126, 126, 126, 0.34)
+    @media screen and (max-width: 870px)
+      width: 100%
+
+.hoverable
+  a
+    color: rgb(36, 36, 36)
+    // font-size: 16.5px
+    text-decoration: none
+    &:hover
+      color: rgb(46, 46, 46)
+
+  .triangle
+    width: 0px
+    height: 0
+    opacity: 0
+    margin-left: 5px
+    display: inline-block
+    border-top: 5px solid transparent
+    border-right: 10px solid rgb(27, 27, 27)
+    border-bottom: 5px solid transparent
+    transition: all 0.12s ease-in-out
+    -o-transition: all 0.12s ease-in-out
+    -moz-transition: all 0.12s ease-in-out
+    -webkit-transition: all 0.12s ease-in-out
+
+  .popup
+    opacity: 0
+    display: inline-block
+    margin-left: -4px
+    top: 0px
+    background-color: rgb(27, 27, 27)
+    left: 70px
+    line-height: 25px
+    color: white
+    padding: 2px 7px
+    border-radius: 2px
+    font-size: 12px
+    transition: all 0.12s ease-in-out
+    -o-transition: all 0.12s ease-in-out
+    -moz-transition: all 0.12s ease-in-out
+    -webkit-transition: all 0.12s ease-in-out
+
+.orders-container
+  width: 100%
+  padding-top: 30px
+
+  .order.hidden-order
+    height: 0px
+    overflow: hidden
+    box-shadow: none
+    &:before
+      height: 0px
+
+  .order
+    width: 70%
+    margin: 0 auto
+    box-sizing: border-box
+    min-height: 50px
+    margin-top: 10px
+    box-shadow: 0px 0px 1px 1px #dddddd
+    transition: all 0.15s ease-in-out
+    -o-transition: all 0.15s ease-in-out
+    -moz-transition: all 0.15s ease-in-out
+    -webkit-transition: all 0.15s ease-in-out
+    position: relative
+    @media screen and (min-width: 871px) and (max-width: 1400px)
+      width: 80%
+    @media screen and (max-width: 870px)
+      width: 100%
+
+    .order-error
+      width: 100%
+      height: 35px
+      box-shadow: 0px 2px 2px 2px #dddddd
+      -o-box-shadow: 0px 2px 2px 2px #dddddd
+      -moz-box-shadow: 0px 2px 2px 2px #dddddd
+      -webkit-box-shadow: 0px 2px 2px 2px #dddddd
+      text-align: center
+      line-height: 35px
+      font-size: 14.5px
+      color: rgb(207, 61, 61)
+      transition: all 0.15s ease-in-out
+      -o-transition: all 0.15s ease-in-out
+      -moz-transition: all 0.15s ease-in-out
+      -webkit-transition: all 0.15s ease-in-out
+      overflow: hidden
+
+    .order-id
+      position: absolute
+      top: 5px
+      left: 10px
+
+    .order-content
+      width: 100%
+      line-height: 50px
+      box-sizing: border-box
+      padding: 0px 10px
+      display: flex
+      overflow: hidden
+      justify-content: center
+      align-items: center
+      @media screen and (max-width: 767px)
+
+      div
+        height: 50px
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+
+      .order-item-title
+        color: rgb(36, 36, 36)
+        width: 25%
+        text-align: left
+        height: 50px
+
+        a
+          width: 250px
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+
+        .triangle
+          top: 50%
+          transform: translateY(-50%)
+          -o-transform: translateY(-50%)
+          -moz-transform: translateY(-50%)
+          -webkit-transform: translateY(-50%)
+          position: absolute
+
+        .popup
+          left: 279px
+          top: 50%
+          transform: translateY(-50%)
+          -o-transform: translateY(-50%)
+          -moz-transform: translateY(-50%)
+          -webkit-transform: translateY(-50%)
+          position: absolute
+
+      .item-posted-on
+        text-align: center
+        width: 25%
+        text-align: left
+        padding-left: 80px
+
+      .order-posted-on
+        width: 25%
+        text-align: center
+
+      .order-buyer
+        text-align: center
+        width: 25%
+        line-height: 50px
+
+        a
+          color: rgb(36, 36, 36)
+
+      .buttons-container
+        padding-right: 20px
+        width: 25%
+        text-align: left
+        display: flex
+        justify-content: flex-end
+
+        .order-details
+          background-color: rgb(10, 161, 246)
+          width: auto
+          height: 35px
+          padding: 0px 12px
+          position: relative
+          top: 50%
+          transform: translateY(-50%)
+          -o-transform: translateY(-50%)
+          -moz-transform: translateY(-50%)
+          -webkit-transform: translateY(-50%)
+          line-height: 31px
+          color: white
+          text-align: center
+          box-sizing: border-box
+          border: 2px solid rgb(10, 161, 246)
+          transition: all 0.13s ease-in-out
+          -o-transition: all 0.13s ease-in-out
+          -moz-transition: all 0.13s ease-in-out
+          -webkit-transition: all 0.13s ease-in-out
+          cursor: pointer
+          &:hover
+            background-color: white
+            color: rgb(10, 161, 246)
+
+        .order-total
+          color: rgb(36, 36, 36)
+          margin-right: 15px
+
+.overlay
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 0px
+  left: 0px
+  background-color: rgba(#dddddd, 0.6)
+  z-index: 99999
+  transition: all 0.2s ease-in-out
+  -o-transition: all 0.2s ease-in-out
+  -moz-transition: all 0.2s ease-in-out
+  -webkit-transition: all 0.2s ease-in-out
+
+
+  .details-container
+    width: 500px
+    margin: 0px auto
+    position: relative
+    height: 100%
+    background-color: white
+    box-shadow: 0px 0px 2px 2px rgba(78, 78, 78, 0.23)
+    -o-box-shadow: 0px 0px 2px 2px rgba(78, 78, 78, 0.23)
+    -moz-box-shadow: 0px 0px 2px 2px rgba(78, 78, 78, 0.23)
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(78, 78, 78, 0.23)
+    overflow: hidden
+    transition: all 0.3s ease-in-out
+    -o-transition: all 0.3s ease-in-out
+    -moz-transition: all 0.3s ease-in-out
+    -webkit-transition: all 0.3s ease-in-out
+    @media screen and (max-width: 500px)
+      width: 100%
+
+    .details-container-heading
+      width: calc(100% + 50px)
+      background-color: rgb(37, 37, 37)
+      color: white
+      margin-left: -25px
+      height: 50px
+      text-align: center
+      font-size: 16px
+      line-height: 50px
+
+    .details-container-content
+      padding: 40px 25px 30px 25px
+      width: 100%
+      height: calc(100% - 50px)
+      overflow-x: hidden
+      overflow-y: auto
+
+      .item-name
+        line-height: 21px
+        font-size: 14.5px
+        a
+          text-decoration: none
+          color: rgb(36, 36, 36)
+          width: calc(100% - 52px)
+          margin-left: -4px
+          display: inline-block
+          height: 23px
+          vertical-align: top
+          text-overflow: ellipsis
+          white-space: nowrap
+          overflow: hidden
+
+      .item-details
+        width: 100%
+        overflow: hidden
+        margin-top: 15px
+
+        .item-thumbnail
+          width: 200px
+          height: 200px
+          background-color: rgba(131, 131, 131, 0.62)
+          display: inline-block
+
+          img
+            max-width: 100%
+            max-height: 100%
+
+        .details
+          width: calc(100% - 200px)
+          display: inline-block
+          vertical-align: top
+          padding: 10px
+          margin-left: -4px
+
+          .item-posted-on
+            font-size: 15px
+            span
+              color: rgb(36, 36, 36)
+
+          .item-price
+            font-size: 15px
+            color: rgb(36, 36, 36)
+
+        .buyer-details
+          width: 100%
+          font-size: 15px
+          line-height: 20px
+          &:before
+            margin: 20px 0px 17px 0px
+            display: block
+            height: 1px
+            width: 100%
+            content: ""
+            background: rgba(124, 124, 124, 0.28)
+
+          div
+            span
+              float: right
+              color: rgb(36, 36, 36)
+
+          .buyer-username
+            a
+              color: rgb(36, 36, 36)
+              text-decoration: none
+
+          .order-placing-details
+            color: rgb(36, 36, 36)
+            margin-top: 5px
+            padding: 10px
+            background-color: white
+            box-shadow: inset 0px 0px 2px 2px rgba(78, 78, 78, 0.16)
+            -o-box-shadow: inset 0px 0px 2px 2px rgba(78, 78, 78, 0.16)
+            -moz-box-shadow: inset 0px 0px 2px 2px rgba(78, 78, 78, 0.16)
+            -webkit-box-shadow: inset 0px 0px 2px 2px rgba(78, 78, 78, 0.16)
+            border-radius: 2px
+
+            .heading
+              color: #777777
+
+            a
+              color: #D9230F
+              text-decoration: none
+              transition: all 0.13s ease-in-out
+              -o-transition: all 0.13s ease-in-out
+              -moz-transition: all 0.13s ease-in-out
+              -webkit-transition: all 0.13s ease-in-out
+              &:hover
+                color: rgb(36, 36, 36)
+
+          .order-amount-total
+            margin-top: 20px
+
+            .amount
+              color: #777777
+              float: left
+
+            .total
+              font-weight: bold
+
+              span
+                font-weight: lighter
+
+      .order-details
+        width: 100%
+        font-size: 15px
+        line-height: 20px
+        &:before
+          margin: 20px 0px 17px 0px
+          display: block
+          height: 1px
+          width: 100%
+          content: ""
+          background: rgba(124, 124, 124, 0.28)
+
+        .order-posted-on
+          overflow: hidden
+
+          span
+            float: right
+            color: rgb(36, 36, 36)
+
+        .order-status
+          margin-top: 5px
+
+          .order-canceled
+            width: 100%
+            margin-top: 10px
+            text-align: center
+            color: rgb(40, 40, 40)
+            color: #D9230F
+            border-right: 5px solid #D9230F
+            border-left: 5px solid #D9230F
+
+          .cancelation-reason
+            margin-top: 15px
+
+            .reason-content
+              display: block
+              color: rgb(36, 36, 36)
+
+          .order-finished
+            width: 100%
+            color: rgb(43, 43, 43)
+            overflow: hidden
+            line-height: 22px
+            margin-top: 5px
+
+            i
+              color: rgb(49, 182, 67)
+              margin-left: 5px
+              font-size: 21px
+              float: right
+
+      .feedback-section
+        &:before
+          margin: 10px 0px 7px 0px
+          display: block
+          height: 1px
+          width: 100%
+          content: ""
+          background: rgba(124, 124, 124, 0.28)
+
+        .buyer-feedback
+          width: 100%
+
+          .stars
+            width: 100%
+            overflow: hidden
+
+            .title
+              font-size: 14.5px
+
+              .username
+                color: rgb(36, 36, 36)
+                font-weight: bold
+
+            .stars-container
+              float: right
+              display: flex
+              justify-content: center
+
+              i
+                font-size: 20px
+                color: rgb(220, 230, 32)
+                margin: 0 2px
+                text-shadow: 0px 0px 2.5px rgba(45, 45, 45, 0.8)
+
+          .feedback
+            width: 100%
+            margin-top: 5px
+            font-size: 14px
+
+            .feedback-content
+              color: rgb(36, 36, 36)
+
+      .feedback-validation-summary
+        width: 100%
+        margin-top: 20px
+        border-top: 5px solid #D9230F
+        overflow: hidden
+        transition: all 0.5s ease-in-out
+        -o-transition: all 0.5s ease-in-out
+        -moz-transition: all 0.5s ease-in-out
+        -webkit-transition: all 0.5s ease-in-out
+
+        .error
+          display: block
+          width: 100%
+          font-size: 13px
+          height: 22px
+          line-height: 22px
+          color: #D9230F
+          text-align: center
+
+      .seller-feedback
+        margin-top: 30px
+        margin-bottom: 20px
+        width: 100%
+        overflow: hidden
+        transition: all 0.3s ease-in-out
+        -o-transition: all 0.3s ease-in-out
+        -moz-transition: all 0.3s ease-in-out
+        -webkit-transition: all 0.3s ease-in-out
+        height: 252px
+
+        .stars
+          width: 100%
+          overflow: hidden
+
+          .title
+            font-size: 14.5px
+
+            .username
+              color: rgb(36, 36, 36)
+              font-weight: bold
+
+          .stars-container
+            float: right
+            display: flex
+            justify-content: center
+
+            i
+              font-size: 20px
+              color: rgb(220, 230, 32)
+              margin: 0 2px
+              text-shadow: 0px 0px 2.5px rgba(45, 45, 45, 0.8)
+
+        .feedback
+          width: 100%
+          margin-top: 5px
+          font-size: 14px
+
+          .feedback-content
+            color: rgb(36, 36, 36)
+
+        .seller-feedback-stars-input
+          width: 100%
+          overflow: hidden
+          line-height: 21px
+          font-size: 15px
+
+          .stars-input
+            display: flex
+            float: right
+            justify-content: center
+
+            .star
+              font-size: 20px
+              margin: 0 2px
+              cursor: pointer
+
+        .feedback-title
+          font-size: 15px
+          width: 100%
+
+        .feedback-input
+          width: 100%
+          resize: none
+          height: 140px
+          border: 1px solid #dddddd
+          padding: 10px
+          transition: all 0.13s ease-in-out
+          -o-transition: all 0.13s ease-in-out
+          -moz-transition: all 0.13s ease-in-out
+          -webkit-transition: all 0.13s ease-in-out
+          margin-top: 10px
+
+          &:focus
+            box-shadow: 0px 0px 2px 2px #dddddd
+
+        .send-feedback
+          padding: 5px 0px
+          text-align: center
+          overflow: hidden
+          border: 2px solid rgb(28, 127, 208)
+          color: rgb(28, 127, 208)
+          transition: all 0.13s ease-in-out
+          -o-transition: all 0.13s ease-in-out
+          -moz-transition: all 0.13s ease-in-out
+          -webkit-transition: all 0.13s ease-in-out
+          cursor: pointer
+          width: 150px
+          margin: 15px auto 55px auto
+          &:hover
+            color: white
+            background-color: rgb(28, 127, 208)
+
+      #send-seller-feedback
+        padding: 5px 0px
+        text-align: center
+        overflow: hidden
+        border: 2px solid rgb(28, 127, 208)
+        color: rgb(28, 127, 208)
+        transition: all 0.13s ease-in-out
+        -o-transition: all 0.13s ease-in-out
+        -moz-transition: all 0.13s ease-in-out
+        -webkit-transition: all 0.13s ease-in-out
+        cursor: pointer
+        width: 150px
+        margin: 15px auto 55px auto
+        &:hover
+          color: white
+          background-color: rgb(28, 127, 208)

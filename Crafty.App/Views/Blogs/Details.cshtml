@@ -1,0 +1,129 @@
+﻿@model BlogDetailsViewModelBag
+
+@{ ViewBag.Title = Model.BlogModel.Title; }
+
+@section styles {
+  <link rel="stylesheet" href="/Stylesheets/blog-details.css">
+}
+
+@section scripts {
+  <script src="~/Scripts/blog-details.js"></script>
+}
+
+<div class="blog-container">
+  <div class="blog-wrapper" data-id="@Model.BlogModel.Id">
+    <div class="blog-title">
+      @Model.BlogModel.Title
+      @if(User.IsInRole("Admin"))
+      {
+        <div class="blog-options">
+          <div class="expand-button">
+            <div class="button-wrapper">
+              <i class="fa fa-cogs"></i>
+            </div>
+          </div>
+          <div class="blog-options-menu">
+            <div class="option option-archive" data-visible="@Model.BlogModel.Visible" data-id="@Model.BlogModel.Id">
+              @if(Model.BlogModel.Visible == true)
+              {
+                <a href="/blogs/archive/@Model.BlogModel.Id">
+                  Архивирай <i class="fa fa-archive"></i>
+                </a>
+              }
+              else
+              {
+                <a href="/blogs/show/@Model.BlogModel.Id">
+                  Възобнови <i class="fa fa-refresh"></i>
+                </a>
+              }
+            </div>
+            <div class="option option-delete">
+              <a href="/blogs/delete/@Model.BlogModel.Id">
+                Изтрий <i class="fa fa-trash"></i>
+              </a>
+            </div>
+            <div class="option option-edit" data-id="@Model.BlogModel.Id">
+              <a href="/blogs/edit/@Model.BlogModel.Id">
+                Редактирай <i class="fa fa-edit"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="blog-posted-on">
+      публикувано на
+      <span class="date-value"> @Model.BlogModel.PostedOn.ToString("dd.MM.yyyy")</span>
+    </div>
+    <div class="blog-content">
+      @Html.Raw(Server.HtmlDecode(Model.BlogModel.Content))
+    </div>
+    <div class="blog-comments">
+      <div class="comments-title">
+        КОМЕНТАРИ
+        @if(Model.BlogModel.CommentsCount > 0)
+        {
+          <span class="comments-count">
+            (<span class="comments-count-value">@Model.BlogModel.CommentsCount</span>)
+          </span>
+        }
+      </div>
+      <div class="add-comment-section">
+        <textarea id="add-comment-input" cols="1" rows="1" placeholder="Публикувай своя коментар"></textarea>
+      </div>
+      @if(Model.BlogModel.CommentsCount > 0)
+      {
+        <div class="comments-container">
+          @Html.Partial("_Comments", new ViewDataDictionary() { Model = Model.BlogModel.Comments })
+        </div>
+        if(Model.MoreCommentsButton == true)
+        {
+          <div class="more-comments-btn">ПОКАЖИ ОЩЕ</div>
+        }
+      }
+    </div>
+  </div>
+  <div class="misc-wrapper">
+    <div class="misc-container">
+      <div class="other-blogs">
+        <div class="other-blogs-title">ОЩЕ СТАТИИ</div>
+        @foreach(ConciseBlogViewModel blog in Model.OtherBlogs)
+        {
+          <div class="blog" data-id="@blog.Id">
+            <a href="/blogs/details/@blog.Id">
+              <div class="blog-thumbnail" style="background-image: url(@blog.Thumbnail)"></div>
+              <div class="blog-title">
+                @blog.Title
+              </div>
+            </a>
+          </div>
+        }
+      </div>
+
+      <div class="related-items">
+        <div class="related-items-title">НИЕ ПРЕПОРЪЧВАМЕ</div>
+        <div class="related-items-container">
+        @foreach(BlogRelatedItemViewModel item in Model.BlogModel.RelatedItems)
+        {
+          <div class="related-item">
+            <a href="/items/details/@item.Id">
+              <div class="item-pictures">
+              @for(int i = 0; i < item.Pictures.Count(); i++)
+              {
+                <img class="item-picture" src="@item.Pictures.ElementAt(@i)" alt="">
+              }
+              </div>
+              <div class="item-title">
+                @item.Title
+              </div>
+              <span class="item-price">
+                @item.Price лв.
+              </span>
+            </a>
+          </div>
+        }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

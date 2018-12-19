@@ -1,0 +1,29 @@
+﻿@model ConciseItemViewModel
+
+<div class="figure">
+  <a class="figure-direct-link" href="/items/details/@Model.Id">
+    <div class="overlay details">
+      <div class="details-container">
+        @*<p class="item-author">@Model.Seller</p>*@
+        <div class="more-button">повече</div>
+        @*<p class="item-location">@Model.Location</p>*@
+      </div>
+    </div>
+    <div class="figure-price">
+      @{
+        if(Model.Price == Decimal.Zero)
+        {
+          @Html.Raw("безплатно")
+        }
+        else
+        {
+          @Html.Raw(Model.Price + "лв.")
+        }
+      }
+    </div>
+    <div class="figure-content">
+      <p class="figure-name">@Model.Title</p>
+      <img class="figure-img" src="@Model.Thumbnail" alt="" />
+    </div>
+  </a>
+</div>

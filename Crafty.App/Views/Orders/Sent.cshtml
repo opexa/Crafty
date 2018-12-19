@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ConciseOrderViewModel>
+@{ ViewBag.Title = "Изпратени поръчки"; }
+
+@section styles {
+  <link rel="stylesheet" href="~/Stylesheets/orders-sent.css">
+}
+
+@Html.Partial("_AccountNavigation")
+<h1 class="page-heading">Изпратени поръчки</h1>
+
+<div class="orders-container">
+  @Html.DisplayForModel()
+</div>
+
+@section scripts {
+  <script src="~/Scripts/orders-sent.js"></script>
+}

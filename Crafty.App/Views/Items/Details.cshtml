@@ -1,0 +1,20 @@
+﻿@model ItemDetailsViewModelBag
+@{
+  ViewBag.Title = Model.ItemDetailsViewModel.Title;
+  ViewBag.Category = Model.ItemDetailsViewModel.Category;
+}
+@section styles {
+  <link rel="stylesheet" href="/Stylesheets/item_details.css">
+  <link href="~/Stylesheets/dragdealer.css" rel="stylesheet" />
+}
+@section scripts {
+  <script src="~/Scripts/dragdealer.js"></script>
+  <script src="~/Scripts/item_details.js"></script>
+}
+<div class="wrapper-container">
+  <div class="navigation"><a href="/items/section/@Model.ItemDetailsViewModel.SectionId">@Model.ItemDetailsViewModel.Section</a>  <i class="fa fa-caret-right"></i>  <a href="/items/section/@Model.ItemDetailsViewModel.SectionId?ctg=@Model.ItemDetailsViewModel.CategoryId">@Model.ItemDetailsViewModel.Category</a></div>
+  <div id="item-wrapper">
+    @Html.DisplayFor(model => model.ItemDetailsViewModel)
+  </div>
+</div>
+@Html.Partial("_SuggestedItems", Model.SuggestedItems)

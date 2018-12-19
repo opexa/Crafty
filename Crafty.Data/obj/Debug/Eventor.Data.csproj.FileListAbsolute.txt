@@ -1,0 +1,16 @@
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Eventor.Data.dll.config
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Eventor.Data.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Eventor.Data.pdb
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\EntityFramework.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Eventor.Models.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Eventor.Models.pdb
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\EntityFramework.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\obj\Debug\Eventor.Data.csprojResolveAssemblyReference.cache
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\obj\Debug\Eventor.Data.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Data\obj\Debug\Eventor.Data.pdb

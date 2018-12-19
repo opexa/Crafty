@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title</title>
+  @Styles.Render("~/Default/css")
+  @Scripts.Render("~/bundles/modernizr")
+  @Scripts.Render("~/Content/jquery")
+  <script src="~/Scripts/jquery.selection.js"></script>
+  @*<link href="~/Stylesheets/@{ @Html.Raw(ViewBag.PageStyle); }.css" rel="stylesheet" />*@
+  @*<link rel="stylesheet" href="/stylesheets/support.css">*@
+  <script type="text/javascript" src="~/Scripts/moment.js"></script>
+  <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+  <link href="~/Stylesheets/perfect-scrollbar.min.css" rel="stylesheet" />
+  <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+  <script src="~/signalr/hubs"></script>
+  <link href="/Stylesheets/default.css" rel="stylesheet" />
+  @RenderSection("styles", false)
+</head>
+<body>
+  <div id="notifications-line"></div>
+  <div class="navbar navbar-inverse navbar-fixed-top navbar-main">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("Crafty", "index", "home", new { area = "" }, new { @class = "navbar-brand" })
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="true">Категории</a>
+            <ul class="dropdown-menu categories-menu" role="menu">
+              @Html.Partial("_DropDownMenuCategories", new ViewDataDictionary() { Model = ViewBag.DropdownSections })
+            </ul>
+          </li>
+          @*NAVIGATION MENU*@
+        </ul>
+        @Html.Partial("_LoginPartial")
+      </div>
+    </div>
+  </div>
+  <div id="wrapper">
+    <div class="container body-content">
+      @RenderBody()
+    </div>
+
+    @*<div id="live-chat-btn">
+      <i class="fa fa-comments"></i>
+      LIVE ЧАТ
+    </div>*@
+  </div>
+  <div class="footer">
+    <div class="section-about">
+      <div class="heading">За нас</div>
+      <div class="content">
+        Ние сме ентусиасти, опитващи се да доставим на хората удоволствието да притежават
+        произведения на изкуството, ръчно произведени от български артисти.
+      </div>
+    </div>
+    <div class="section-contact">
+      <div class="heading">Контакти</div>
+      <div class="email-contact">
+        <i class="fa fa-envelope-o"></i>&nbsp;
+        support@crafy.com
+      </div>
+    </div>
+    <div class="section-social-media">
+      <div class="facebook">
+        <a href="https://www.facebook.com/">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </div>
+      <div class="instagram">
+        <a href="http://www.instagram.com/">
+          <i class="fa fa-instagram"></i>
+        </a>
+      </div>
+      <div class="pinterest">
+        <a href="https://www.pintrest.com/">
+          <i class="fa fa-pinterest"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  @*@Scripts.Render("~/bundles/jquery")*@
+  @*@Scripts.Render("~/bundles/jqueryval")*@
+  @Scripts.Render("~/bundles/bootstrap")
+  <script src="~/Scripts/crafty.js"></script>
+  <script src="~/Scripts/support.js"></script>
+  @RenderSection("scripts", required: false)
+  <script src="~/Scripts/perfect-scrollbar.jquery.js"></script>
+  <script src="~/Scripts/perfect-scrollbar.min.js"></script>
+</body>
+</html>

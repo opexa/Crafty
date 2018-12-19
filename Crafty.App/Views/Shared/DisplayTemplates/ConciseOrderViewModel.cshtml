@@ -1,0 +1,125 @@
+﻿@model ConciseOrderViewModel
+
+<div class="order" data-id="@Model.OrderId">
+  <div class="content-wrapper">
+    <div class="order-item-thumbnail">
+      <img src="@Model.ItemThumbnail" alt="">
+    </div>
+    <div class="item-details">
+      <div class="order-id">
+        #@Model.OrderId
+        <!-- Not used for the current moment -->
+        <!-- <div class="order-options">
+          <i class="fa fa-caret-down"></i>
+          <ul class="order-options-menu">
+            <li class="option">
+              Изпрати съобщение <i class="fa fa-envelope-square"></i>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+      <div class="hoverable item-title">
+        <a href="/items/details/@Model.ItemId">@Model.ItemTitle</a>
+        <div class="triangle"></div>
+        <div class="popup">ВИЖ ОБЯВАТА</div>
+      </div>
+      <div class="item-price">
+        <i class="fa fa-usd"></i>
+        <span>@Model.ItemPrice</span> лв.
+      </div>
+      <div class="item-posted-on">
+        <i class="fa fa-calendar-check-o"></i>
+        публикувана на @Model.ItemPostedOn.ToString("dd.MM.yyyy")
+      </div>
+      <div class="order-details">
+        <div class="heading">
+          <i class="fa fa-address-card "></i>
+          Данни за доставка:
+        </div>
+        <div class="hoverable order-buyer-name">
+          Имена:
+          @Model.OrderShippingFullName
+          <!-- <a href="/account/users/@Model.OrderBuyerUsername">@Model.OrderShippingFullName</a>
+          <div class="triangle"></div>
+          <div class="popup">ПРОФИЛ</div> -->
+        </div>
+        <div class="order-buyer-address">Адрес: @Model.OrderShippingAddress</div>
+        <div class="order-buyer-city">Град: @Model.OrderShippingCity</div>
+        <div class="order-amount">Количество: @Model.OrderAmount бр.</div>
+        <div class="order-total">
+          Крайна сума:
+          @{
+            var total = Model.OrderAmount * Model.ItemPrice;
+            string totalPrice = String.Format("{0:0.00}", total);
+            <span>@totalPrice</span>
+            @Html.Raw(" лв.")
+          }
+        </div>
+        @if(this.ViewContext.RouteData.GetRequiredString("action") == "sent")
+        {
+          <div class="order-sent-date">
+            <i class="fa fa-telegram"></i>
+            <div class="content">
+              Изпратена на:
+              <span>@Model.OrderShippedOn.Value.ToString("dd.MM.yyyy")</span>
+            </div>
+          </div>
+
+          <div class="order-tracking-number">
+            <i class="fa fa-truck "></i>
+            <div class="content">
+              Просл.номер:
+              @if(Model.OrderTrackingNum != null)
+              {
+                <span>@Model.OrderTrackingNum</span>
+              }
+              else
+              {
+                <span>Няма номер за проследяване</span>
+              }
+            </div>
+          </div>
+        }
+
+        <div class="order-quotes">
+          <div class="section-title">Забележки: </div>
+          @if (Model.OrderDetails != null)
+          {
+            @Html.Details(Model.OrderDetails)
+          }
+          else
+          {
+            @Html.Raw("Няма забележки по поръчката")
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  @if(this.User.IsInRole("Admin"))
+  {
+    <div class="actions-wrapper">
+      <!-- <div class="action send-message">
+        <i class="fa fa-envelope-o"></i>
+        Прати съобщение
+      </div> -->
+      @if(this.ViewContext.RouteData.GetRequiredString("action") == "awaiting")
+      {
+        <div class="action order-sent" data-order-id="@Model.OrderId">
+          <i class="fa fa-rocket"></i>&nbsp;
+          Изпратено
+        </div>
+      }
+
+      @if(this.ViewContext.RouteData.GetRequiredString("action") == "sent")
+      {
+        <div class="action order-finished" data-order-id="@Model.OrderId">
+          <i class="fa fa-check-circle"></i>
+          Завършена
+        </div>
+      }
+    </div>
+  }
+  <div class="expand-order">
+    <i class="fa fa-chevron-down"></i>
+  </div>
+</div>

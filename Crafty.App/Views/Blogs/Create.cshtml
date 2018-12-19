@@ -1,0 +1,65 @@
+﻿@model AddBlogBindingModel
+
+﻿@{
+  ViewBag.Title = "Публикуване на блог";
+}﻿
+@section styles {
+  <link rel="stylesheet" href="~/Stylesheets/blogs-create.css">
+}
+@section scripts {
+  <script src="~/Scripts/blogs-create.js"></script>
+}
+
+<div class="page-heading">
+  Публикувай блог <i class="fa fa-wpforms "></i>
+</div>
+
+<div class="form-container">
+  <div class="editor-tool">
+    <div class="tools-menu">
+      <div class="tool add-paragraph">
+        <i class="fa fa-paragraph"></i>
+      </div>
+      <div class="tool link">
+        <i class="fa fa-link"></i>
+      </div>
+      <div class="tool bold-text">
+        <i class="fa fa-bold"></i>
+      </div>
+      <div class="tool italic-text">
+        <i class="fa fa-italic"></i>
+      </div>
+      <div class="tool add-image">
+        <i class="fa fa-photo"></i>
+      </div>
+      <div class="tool youtube-video">
+        <i class="fa fa-youtube-play"></i>
+      </div>
+    </div>
+  </div>
+  <div class="form-wrapper">
+  @using(Html.BeginForm("create", "blogs", FormMethod.Post, new { enctype="multipart/form-data" }))
+  {
+    @Html.AntiForgeryToken()
+    <div class="title-section">
+      <div class="title-button">ЗАГЛАВИЕ</div>
+      @Html.TextBoxFor(model => model.Title, new { @class = "title-input", Placeholder = "Моята нова статия.." })
+    </div>
+    <div class="content-section">
+      <textarea data-id="1" class="blog-content-input" cols="30" rows="10" placeholder="Начало.."></textarea>
+    </div>
+    <div class="related-items-section">
+      <div class="related-items-section-title">ПРЕПОРЪЧАНИ ИЗДЕЛИЯ</div>
+      <div class="related-item add-related-item">
+        <i class="fa fa-plus-circle"></i>
+      </div>
+    </div>
+    <div class="buttons-section">
+      <div id="submit">Публикувай</div>
+    </div>
+    @Html.HiddenFor(model => model.Content)
+    @Html.HiddenFor(model => model.BlogContentIdentifier)
+    @Html.HiddenFor(model => model.RelatedItems)
+  }
+  </div>
+</div>

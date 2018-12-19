@@ -1,0 +1,227 @@
+.columns
+  column-width: 245px
+  column-gap: 15px
+  width: 95%
+  /*max-width: 1100px;*/
+  margin: 0px auto 50px auto
+  padding-top: 60px
+  column-count: 7
+  column-width: 200px
+  @media screen and (max-width: 1079px) and (min-width: 870px)
+    column-width: 231px
+  @media screen and (max-width: 870px)
+    column-width: 240px
+  @media screen and (max-width: 790px)
+    column-width: 210px
+  @media screen and (max-width: 697px)
+    column-width: 190px
+  @media screen and (max-width: 632px)
+    column-width: 170px
+  @media screen and (max-width: 569px)
+    column-width: 150px
+  @media screen and (max-width: 506px)
+    column-width: 40%
+    column-count: 2
+  @media screen and (max-width: 420px)
+    column-width: 100%
+    column-count: 1
+    margin-top: 20px
+
+  .figure
+    background: #fefefe
+    border: 2px solid #fcfcfc
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4)
+    margin: 0 2px 15px
+    padding: 15px
+    padding-bottom: 30px
+    transition: all .1s ease-in-out
+    box-sizing: border-box
+    display: inline-block
+    position: relative
+    min-height: 210px
+    column-break-inside: avoid
+    &:hover
+      opacity: 1
+      cursor: pointer
+      .figure-direct-link
+        .figure-content
+          filter: blur(2px)
+        .figure-price
+          filter: blur(2px)
+
+    @media screen and (max-width: 870px)
+      width: 240px
+    @media screen and (max-width: 790px)
+      width: 210px
+    @media screen and (max-width: 697px)
+      width: 190px
+    @media screen and (max-width: 632px)
+      width: 170px
+    @media screen and (max-width: 569px)
+      width: 150px
+    @media screen and (max-width: 506px)
+      width: 200px
+    @media screen and (max-width: 420px)
+      height: 100px
+      min-height: 0px
+      overflow: hidden
+      width: 100%
+      padding: 0px
+      border: none
+      margin-bottom: 6px
+
+    .figure-direct-link
+      width: 100%
+      height: 100%
+      text-decoration: none
+      display: block
+
+      .overlay.details
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0px
+        left: 0px
+        transition: all 0.2s ease-in-out
+        background-color: rgba(0, 0, 0, 0.16)
+        opacity: 0
+        z-index: 4
+        text-align: center
+        color: white
+        font-size: 20px
+        line-height: 100%
+        display: block
+        padding: 0 15px 0 15px
+        &:hover
+          opacity: 1
+
+        .details-container
+          position: relative
+          top: 50%
+          transform: translateY(-50%)
+
+          .item-author
+            padding-bottom: 0px
+            width: 100%
+            overflow: hidden
+            font-weight: bold
+            text-overflow: ellipsis
+            height: 22px
+            &:hover
+              text-decoration: underline
+
+          .more-button
+            height: 50px
+            width: calc(100% + 30px)
+            margin-left: -15px
+            background-color: #2854ED
+            font-size: 18px
+            line-height: 50px
+            transition: all 0.1s ease-in-out
+            -o-transition: all 0.1s ease-in-out
+            -moz-transition: all 0.1s ease-in-out
+            -webkit-transition: all 0.1s ease-in-out
+            &:hover
+              height: 60px
+              line-height: 60px
+              background-color: #F97429
+
+          .item-location
+            font-size: 16px
+
+      .figure-price
+        position: absolute
+        bottom: -2px
+        top: auto
+        color: #D9230F
+        z-index: 3
+        width: 70%
+        font-size: 18px
+        min-width: 94px
+        max-width: 153px
+        padding-left: 20px
+        height: 40px
+        vertical-align: middle
+        text-align: left
+        left: -2px
+        right: auto
+        margin: 0 auto
+        @media screen and (max-width: 1280px)
+          max-width: 168px
+        @media screen and (max-width: 705px)
+          font-size: 15px
+          width: 104%
+        @media screen and (max-width: 420px)
+          left: 0px
+          right: auto
+          top: auto
+          bottom: 0px
+          padding: 7px 5px
+          min-width: 70px
+          max-width: 90px
+          font-size: 13px
+          line-height: 13px
+          text-align: center
+
+      .figure-content
+        @media screen and (max-width: 531px)
+          width: 100%
+          height: 100%
+          overflow: hidden
+          position: relative
+
+        .figure-img
+          width: 100%
+          height: auto
+          transition: all 0.2s ease-in-out
+          padding-bottom: 15px
+          margin-bottom: 5px
+          @media screen and (max-width: 420px)
+            padding: 0px
+            width: 100px
+            height: 100px
+            position: absolute
+            right: 0px
+            left: auto
+            top: 0px
+            border: none
+
+        .figure-name
+          font-size: 16px
+          line-height: 16px
+          font-weight: 500
+          transition: font-size 3s ease-in-out
+          color: #444
+          &:after
+            width: 100%
+            height: 1px
+            margin-top: 5px
+            content: ""
+            display: block
+            background: rgba(0, 0, 0, 0.2)
+          @media screen and (max-width: 920px)
+            box-sizing: border-box
+            width: 100%
+            max-height: 38px
+            overflow: hidden
+            text-overflow: ellipsis
+            vertical-align: top
+            display: inline-block
+          @media screen and (max-width: 420px)
+            padding-left: 10px
+            padding-top: 7px
+            width: calc(100% - 100px)
+            &:after
+              display: none
+
+
+    small
+      font-size: 1rem
+      float: right
+      text-transform: uppercase
+      color: #aaa
+
+      a
+        color: #666
+        text-decoration: none
+        transition: .4s color

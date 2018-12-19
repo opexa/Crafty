@@ -1,0 +1,14 @@
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\Eventor.Models.dll.config
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\Eventor.Models.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\Eventor.Models.pdb
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\EntityFramework.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\EntityFramework.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\obj\Debug\Eventor.Models.csprojResolveAssemblyReference.cache
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\obj\Debug\Eventor.Models.dll
+C:\Users\Flacko\Desktop\Eventor\Eventor.Models\obj\Debug\Eventor.Models.pdb

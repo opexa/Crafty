@@ -1,0 +1,41 @@
+﻿@{ ViewBag.Title = "Админ панел"; }
+@section styles {
+  <link rel="stylesheet" href="~/Stylesheets/admin-index.css">
+}
+@section scripts {
+  <script src="~/Scripts/admin-index.js"></script>
+}
+
+<div class="content-wrapper">
+  <div class="page-heading">
+    МЕНИДЖЪР
+    <i class="fa fa-cog"></i>
+    <hr>
+  </div>
+
+  <div class="settings-options">
+    <div class="setting setting-categories">
+      <a class="setting-link" href="/admin/categories">
+        <span class="setting-text">
+          КАТЕГОРИИ
+          <i class="fa fa-database"></i>
+        </span>
+      </a>
+    </div>
+    <div class="setting setting-categories">
+      <a class="setting-link" href="/items/add">
+        <span class="setting-text">
+          НОВА ОБЯВА
+          <i class="fa fa-clone"></i>
+        </span>
+      </a>
+    </div>
+    <div class="setting setting-categories">
+      <a class="setting-link" href="/blogs/create">
+        <span class="setting-text">
+          СЪЗДАЙ БЛОГ
+          <i class="fa fa-quote-right"></i>
+        </span>
+      </a>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿<div id="toggle-account-menu">МЕНЮ</div>
+<div class="account-nav">
+  <div class="container">
+    <ul class="menu-wrapper">
+      <li class="menu-opt" id="index-tab">
+        <a href="/account"><i class="fa fa-institution"></i> Начало</a>
+      </li>
+      <li class="menu-opt" id="edit-tab">
+        <a href="/account/edit"><i class="glyphicon glyphicon-pencil"></i> Редактиране</a>
+      </li>
+      @*@if (Request.Cookies["userStatusCookie"] != null && Request.Cookies["userStatusCookie"].Value == "Seller")*@
+      @if(User.IsInRole("Admin"))
+      {
+        <li class="menu-opt" id="items-tab">
+          <a href="/account/items"><i class="fa fa-align-left"></i> Моите обяви</a>
+        </li>
+        <li class="menu-opt" id="manager-tab">
+          <a class="toggle-scallable" href="/account/orders?t=awaiting"><i class="fa fa-fax"></i> Мениджър поръчки</a>
+          <ul class="orders-manager-menu scallable">
+            <li class="option" id="option-awaiting">
+              <a href="/orders/awaiting">
+                @if (this.ViewBag.aoCount > 0)
+                {
+                  <div class="orders-count">@this.ViewBag.aoCount</div>
+                }
+                else
+                {
+                  <i class="fa fa-hourglass-end"></i>
+                }
+                Чакащи
+                </a>
+              </li>
+              <li class="option" id="option-sent">
+                <a href="/orders/sent">
+                  <i class="fa fa-paper-plane-o"></i>
+                  Изпратени
+                </a>
+              </li>
+              <li class="option" id="option-finished">
+                <a href="/orders/finished">
+                  <i class="fa fa-check-circle"></i>
+                  Завършени
+                </a>
+              </li>
+            </ul>
+          </li>
+      }
+      <li class="menu-opt" id="favourites-tab">
+        <a href="/account/favourites"><i class="glyphicon glyphicon-folder-open"></i> Любими</a>
+      </li>
+      <li class="menu-opt" id="likes-tab">
+        <a href="/account/likes"><i class="glyphicon glyphicon-heart"></i> Харесани</a>
+      </li>
+      <li class="menu-opt" id="purchases-tab">
+        <a href="/account/purchases"><i class="fa fa-shopping-cart"></i> Мои поръчки</a>
+      </li>
+    </ul>
+  </div>
+</div>

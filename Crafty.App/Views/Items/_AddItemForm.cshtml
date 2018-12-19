@@ -1,0 +1,146 @@
+﻿@model AddItemBindingModel
+
+@using (Html.BeginForm("Add", "Items", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+  @Html.AntiForgeryToken()
+  <div class="form-horizontal add-item-form">
+    <h1 class="text-center form-heading">Добави ново изделие</h1>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+      @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label" })
+      @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+      <div class="input-holder">
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Име на изделието" } })
+      </div>
+    </div>
+
+    <div class="form-group price-quantity-group">
+      @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+      <div class="input-holder">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label" })
+        <div class="input-group">
+          @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Цена" } })
+          <span class="input-group-addon">лв</span>
+        </div>
+      </div>
+      <div class="input-holder">
+        @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", placeholder = "Количество" } })
+      </div>
+    </div>
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label" })
+      @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+      <div class="input-holder">
+        <div class="item-category-add" id="add-item-category"><i class="glyphicon glyphicon-plus"></i>Избери категория</div>
+        @Html.HiddenFor(model => model.CategoryId)
+      </div>
+    </div>
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+      @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+      <div class="input-holder">
+        @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+      </div>
+    </div>
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.Pictures, htmlAttributes: new { @class = "control-label" })
+      <p class="picture-upload-info"> ( първата снимка ще бъде използвана за корица на обявата )</p>
+      @Html.ValidationMessageFor(model => model.Pictures, "", new { @class = "text-danger" })
+      <div id="pictures-container">
+        <table class="input-holder">
+          <tbody>
+            <tr>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="1">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="1"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "1" })
+              </td>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="2">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="2"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "2" })
+              </td>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="3">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="3"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "3" })
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="4">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="4"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "4" })
+              </td>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="5">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="5"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "5" })
+              </td>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="6">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="6"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "6" })
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="7">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="7"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "7" })
+              </td>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="8">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="8"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "8" })
+              </td>
+              <td>
+                <div class="preview-layer img-remove-preview preview-hidden" data-show-id="9">
+                  <img src="" alt="" />
+                  <i class="glyphicon glyphicon-remove-circle"></i>
+                </div>
+                <div class="img-upload-btn" data-input-id="9"><i class="glyphicon glyphicon-picture"></i></div>
+                @Html.TextBoxFor(model => model.Pictures, new { @class = "btn btn-primary item-img-upload", type = "file", data_field_id = "9" })
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-holder">
+        <input type="submit" value="Добави" class="btn" />
+      </div>
+    </div>
+  </div>
+}

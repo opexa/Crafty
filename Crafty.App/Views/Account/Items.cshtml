@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MyItemViewModel>
+@{ ViewBag.Title = "Моите обяви"; }
+@section styles {
+  <link rel="stylesheet" href="/Stylesheets/account_items.css">
+}
+@section scripts {
+  <script src="/Scripts/account_items.js"></script>
+}
+
+@Html.Partial("_AccountNavigation")
+
+<div class="items-container">
+  <p>Моите обяви</p>
+  <div class="items-wrapper">
+    @if (Model.Any())
+    {
+      @Html.Partial("_AccountItems", Model)
+      if (Model.Count() == 7)
+      {
+        <div id="load-more" data-skip="2">ПОКАЖИ ОЩЕ</div>
+      }
+    }
+    else
+    {
+      <h1 class="no-items">Все още нямаш публикувани обяви</h1>
+    }
+  </div>
+</div>

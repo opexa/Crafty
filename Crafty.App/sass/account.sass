@@ -1,0 +1,110 @@
+html
+  body
+    background: rgba(131, 131, 131, 0.29)
+
+#wrapper
+  padding-bottom: 130px
+
+.container.body-content
+  width: 100%
+  padding: 20px 30px 70px 30px
+
+div.user-info-container
+  width: calc(100% - 270px)
+  float: right
+  margin: 30px 0px 0px 0px
+  @media screen and (max-width: 870px)
+    width: 95%
+    float: none
+    margin: 0 auto
+
+  div#user-info
+    @media screen and (max-width: 426px)
+      text-align: center
+
+    .user-heading-info
+      height: 380px
+      background-repeat: no-repeat
+      background-size: cover
+      background-attachment: fixed
+      background-position: center
+      position: relative
+      box-shadow: 0px 0px 2px 2px rgba(66, 66, 66, 0.57)
+      -o-box-shadow: 0px 0px 2px 2px rgba(66, 66, 66, 0.57)
+      -moz-box-shadow: 0px 0px 2px 2px rgba(66, 66, 66, 0.57)
+      -webkit-box-shadow: 0px 0px 2px 2px rgba(66, 66, 66, 0.57)
+
+      .profile-nav
+        position: absolute
+        top: 0px
+        left: 0px
+
+        .edit-profile
+          color: white
+
+          a
+            color: white
+            width: 100%
+            height: 100%
+
+      .user-picture
+        width: 100%
+        height: 380px
+
+        div.img-circle
+          vertical-align: middle
+          margin: 0 auto
+          position: relative
+          top: 47%
+          transform: translateY(-47%)
+          height: 150px
+          width: 150px
+          background-position: center
+          background-size: cover
+          border: 1px solid #0061D2
+
+      .user-username-info
+        color: white
+        position: absolute
+        bottom: 0px
+        left: 0
+        right: 0
+        height: 50px
+        box-sizing: border-box
+        padding: 5px 5px 5px 20px
+        line-height: 40px
+        font-size: 24px
+        background-color: rgb(244, 118, 27)
+        @media screen and (max-width: 426px)
+          height: 100px
+          text-align: center
+
+
+        .user-status
+          .hide-on-resize
+            @media screen and (max-width: 426px)
+              display: none
+
+    .user-main-info
+      background-color: rgb(244, 118, 27)
+      color: white
+      font-size: 1.5rem
+
+      .info-field
+        span
+          text-decoration: underline
+        a
+          color: white
+
+
+      .info-email
+        @media screen and (max-width: 320px)
+          font-size: 13px
+
+      .user-info-description
+        padding-bottom: 15px
+        color: white
+        span
+          text-align: center
+        h5
+          color: white
